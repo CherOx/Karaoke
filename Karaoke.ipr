@@ -198,6 +198,9 @@
       </item>
     </group>
   </component>
+  <component name="ProjectDictionaryState">
+    <dictionary name="Василий" />
+  </component>
   <component name="ProjectModuleManager">
     <modules>
       <module fileurl="file://$PROJECT_DIR$/Karaoke.iml" filepath="$PROJECT_DIR$/Karaoke.iml" />
@@ -211,7 +214,6 @@
   </component>
   <component name="VcsDirectoryMappings">
     <mapping directory="" vcs="Git" />
-    <mapping directory="" vcs="CVS" />
   </component>
   <component name="libraryTable">
     <library name="Maven: aopalliance:aopalliance:1.0">
