@@ -16,7 +16,7 @@
     <file path="/fragment.java" changelist="98c802a2-f02b-4f31-a29a-056f8eccec71" time="1366296764161" ignored="false" />
     <file path="/HalloPresenter.java" changelist="98c802a2-f02b-4f31-a29a-056f8eccec71" time="1366295391378" ignored="false" />
     <file path="/AppEventBus.java" changelist="98c802a2-f02b-4f31-a29a-056f8eccec71" time="1366296700572" ignored="false" />
-    <file path="/Dummy.txt" changelist="98c802a2-f02b-4f31-a29a-056f8eccec71" time="1366384544155" ignored="false" />
+    <file path="/Dummy.txt" changelist="98c802a2-f02b-4f31-a29a-056f8eccec71" time="1366384683624" ignored="false" />
     <file path="$USER_HOME$/Downloads/mvp4g-examples-1.4.0/TestMvp4g/src/com/mvp4g/example/client/TestEventBus.java" changelist="98c802a2-f02b-4f31-a29a-056f8eccec71" time="1366291882635" ignored="false" />
     <file path="$USER_HOME$/Downloads/mvp4g-examples-1.4.0/TestMvp4g/.idea/workspace.xml" changelist="98c802a2-f02b-4f31-a29a-056f8eccec71" time="1366292271276" ignored="false" />
     <file path="/TestMvp4g.gwt.xml" changelist="98c802a2-f02b-4f31-a29a-056f8eccec71" time="1366292237128" ignored="false" />
@@ -36,7 +36,7 @@
     <file path="/WorkView.java" changelist="98c802a2-f02b-4f31-a29a-056f8eccec71" time="1366356644784" ignored="false" />
     <file path="/WorkPresenter.java" changelist="98c802a2-f02b-4f31-a29a-056f8eccec71" time="1366356301758" ignored="false" />
     <file path="/SelectedTextBlock.java" changelist="98c802a2-f02b-4f31-a29a-056f8eccec71" time="1366356254117" ignored="false" />
-    <file path="$PROJECT_DIR$/../Test/.idea/workspace.xml" changelist="98c802a2-f02b-4f31-a29a-056f8eccec71" time="1366384573648" ignored="false" />
+    <file path="$PROJECT_DIR$/../Test/.idea/workspace.xml" changelist="98c802a2-f02b-4f31-a29a-056f8eccec71" time="1366384876877" ignored="false" />
     <file path="$PROJECT_DIR$/../Test/.idea/compiler.xml" changelist="98c802a2-f02b-4f31-a29a-056f8eccec71" time="1366381181007" ignored="false" />
     <file path="$PROJECT_DIR$/../Test/src/main/java/MainClass.java" changelist="98c802a2-f02b-4f31-a29a-056f8eccec71" time="1366381722739" ignored="false" />
     <file path="$PROJECT_DIR$/../Test/Test.iml" changelist="98c802a2-f02b-4f31-a29a-056f8eccec71" time="1366381320360" ignored="false" />
@@ -118,7 +118,7 @@
       <file leaf-file-name="WorkView.java" pinned="false" current="true" current-in-tab="true">
         <entry file="file://$PROJECT_DIR$/src/main/java/karaoke/client/view/WorkView.java">
           <provider selected="true" editor-type-id="text-editor">
-            <state line="198" column="22" selection-start="6407" selection-end="6407" vertical-scroll-proportion="0.90304184">
+            <state line="193" column="36" selection-start="6357" selection-end="6357" vertical-scroll-proportion="0.7414449">
               <folding>
                 <marker date="1366384439478" expanded="true" signature="5454:6400" placeholder="{...}" />
                 <marker date="1366384439478" expanded="true" signature="5468:6345" placeholder="{...}" />
@@ -712,7 +712,11 @@
       <created>1366384545884</created>
       <updated>1366384545884</updated>
     </task>
-    <option name="localTasksCounter" value="10" />
+    <task id="LOCAL-00010" summary="Fourth commit">
+      <created>1366384688289</created>
+      <updated>1366384688289</updated>
+    </task>
+    <option name="localTasksCounter" value="11" />
     <servers />
   </component>
   <component name="TodoView" selected-index="0">
@@ -737,7 +741,7 @@
   </component>
   <component name="ToolWindowManager">
     <frame x="-8" y="-8" width="1296" height="1000" extended-state="6" />
-    <editor active="false" />
+    <editor active="true" />
     <layout>
       <window_info id="Changes" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.32936978" sideWeight="0.5" order="5" side_tool="false" content_ui="tabs" />
       <window_info id="JetGradle" active="false" anchor="right" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.33" sideWeight="0.5" order="8" side_tool="false" content_ui="tabs" />
@@ -749,7 +753,7 @@
       <window_info id="Event Log" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.32818073" sideWeight="0.5" order="0" side_tool="true" content_ui="tabs" />
       <window_info id="Favorites" active="false" anchor="left" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.33" sideWeight="0.5" order="1" side_tool="true" content_ui="tabs" />
       <window_info id="IDEtalk" active="false" anchor="right" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.3298217" sideWeight="0.6725979" order="1" side_tool="false" content_ui="tabs" />
-      <window_info id="Version Control" active="true" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="true" weight="0.32818073" sideWeight="0.5" order="2" side_tool="false" content_ui="tabs" />
+      <window_info id="Version Control" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="true" weight="0.32818073" sideWeight="0.5" order="2" side_tool="false" content_ui="tabs" />
       <window_info id="Messages" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.35196194" sideWeight="0.5" order="4" side_tool="false" content_ui="tabs" />
       <window_info id="CDI" active="false" anchor="right" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.33" sideWeight="0.5" order="2" side_tool="false" content_ui="tabs" />
       <window_info id="Web" active="false" anchor="left" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.24959481" sideWeight="0.42649436" order="0" side_tool="true" content_ui="tabs" />
@@ -958,7 +962,7 @@
     </entry>
     <entry file="file://$PROJECT_DIR$/src/main/java/karaoke/client/view/WorkView.java">
       <provider selected="true" editor-type-id="text-editor">
-        <state line="198" column="22" selection-start="6407" selection-end="6407" vertical-scroll-proportion="0.90304184">
+        <state line="193" column="36" selection-start="6357" selection-end="6357" vertical-scroll-proportion="0.7414449">
           <folding>
             <marker date="1366384439478" expanded="true" signature="5454:6400" placeholder="{...}" />
             <marker date="1366384439478" expanded="true" signature="5468:6345" placeholder="{...}" />
