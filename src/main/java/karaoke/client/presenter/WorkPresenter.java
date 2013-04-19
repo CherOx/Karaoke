@@ -35,6 +35,7 @@ public class WorkPresenter extends BasePresenter<WorkView, MainEventBus> {
         list.add(new SelectedTextBlock(28,39,6000,7000));
         list.add(new SelectedTextBlock(40,51,7020,7500));
         list.add(new SelectedTextBlock(52,56,8000,9000));
+
         eventBus.changeBody(view.getViewWidget());
         view.setText(string, list);
     }
