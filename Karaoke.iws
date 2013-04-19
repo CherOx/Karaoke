@@ -16,7 +16,7 @@
     <file path="/fragment.java" changelist="98c802a2-f02b-4f31-a29a-056f8eccec71" time="1366296764161" ignored="false" />
     <file path="/HalloPresenter.java" changelist="98c802a2-f02b-4f31-a29a-056f8eccec71" time="1366295391378" ignored="false" />
     <file path="/AppEventBus.java" changelist="98c802a2-f02b-4f31-a29a-056f8eccec71" time="1366296700572" ignored="false" />
-    <file path="/Dummy.txt" changelist="98c802a2-f02b-4f31-a29a-056f8eccec71" time="1366384995737" ignored="false" />
+    <file path="/Dummy.txt" changelist="98c802a2-f02b-4f31-a29a-056f8eccec71" time="1366385123348" ignored="false" />
     <file path="$USER_HOME$/Downloads/mvp4g-examples-1.4.0/TestMvp4g/src/com/mvp4g/example/client/TestEventBus.java" changelist="98c802a2-f02b-4f31-a29a-056f8eccec71" time="1366291882635" ignored="false" />
     <file path="$USER_HOME$/Downloads/mvp4g-examples-1.4.0/TestMvp4g/.idea/workspace.xml" changelist="98c802a2-f02b-4f31-a29a-056f8eccec71" time="1366292271276" ignored="false" />
     <file path="/TestMvp4g.gwt.xml" changelist="98c802a2-f02b-4f31-a29a-056f8eccec71" time="1366292237128" ignored="false" />
@@ -36,7 +36,7 @@
     <file path="/WorkView.java" changelist="98c802a2-f02b-4f31-a29a-056f8eccec71" time="1366356644784" ignored="false" />
     <file path="/WorkPresenter.java" changelist="98c802a2-f02b-4f31-a29a-056f8eccec71" time="1366356301758" ignored="false" />
     <file path="/SelectedTextBlock.java" changelist="98c802a2-f02b-4f31-a29a-056f8eccec71" time="1366356254117" ignored="false" />
-    <file path="$PROJECT_DIR$/../Test/.idea/workspace.xml" changelist="98c802a2-f02b-4f31-a29a-056f8eccec71" time="1366385071235" ignored="false" />
+    <file path="$PROJECT_DIR$/../Test/.idea/workspace.xml" changelist="98c802a2-f02b-4f31-a29a-056f8eccec71" time="1366385188982" ignored="false" />
     <file path="$PROJECT_DIR$/../Test/.idea/compiler.xml" changelist="98c802a2-f02b-4f31-a29a-056f8eccec71" time="1366381181007" ignored="false" />
     <file path="$PROJECT_DIR$/../Test/src/main/java/MainClass.java" changelist="98c802a2-f02b-4f31-a29a-056f8eccec71" time="1366381722739" ignored="false" />
     <file path="$PROJECT_DIR$/../Test/Test.iml" changelist="98c802a2-f02b-4f31-a29a-056f8eccec71" time="1366381320360" ignored="false" />
@@ -724,7 +724,11 @@
       <created>1366384906882</created>
       <updated>1366384906882</updated>
     </task>
-    <option name="localTasksCounter" value="13" />
+    <task id="LOCAL-00013" summary="Sixth commit">
+      <created>1366385124166</created>
+      <updated>1366385124166</updated>
+    </task>
+    <option name="localTasksCounter" value="14" />
     <servers />
   </component>
   <component name="TodoView" selected-index="0">
@@ -822,7 +826,7 @@
     <option name="WRAP_WHEN_TYPING_REACHES_RIGHT_MARGIN" value="false" />
     <option name="FORCE_NON_EMPTY_COMMENT" value="false" />
     <option name="CLEAR_INITIAL_COMMIT_MESSAGE" value="false" />
-    <option name="LAST_COMMIT_MESSAGE" value="Fifth commit" />
+    <option name="LAST_COMMIT_MESSAGE" value="Sixth commit" />
     <option name="MAKE_NEW_CHANGELIST_ACTIVE" value="false" />
     <option name="OPTIMIZE_IMPORTS_BEFORE_PROJECT_COMMIT" value="false" />
     <option name="CHECK_FILES_UP_TO_DATE_BEFORE_COMMIT" value="false" />
@@ -841,6 +845,7 @@
     <MESSAGE value="Third commit" />
     <MESSAGE value="Fourth commit" />
     <MESSAGE value="Fifth commit" />
+    <MESSAGE value="Sixth commit" />
   </component>
   <component name="VssConfiguration">
     <option name="CLIENT_PATH" value="" />
