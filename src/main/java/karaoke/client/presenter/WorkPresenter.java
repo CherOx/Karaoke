@@ -26,12 +26,18 @@ public class WorkPresenter extends BasePresenter<WorkView, MainEventBus> {
     ArrayList<SelectedTextBlock> list = new ArrayList<SelectedTextBlock>();
 
     public void onStart() {
-        list.add(new SelectedTextBlock(0,0,0,0));
-        list.add(new SelectedTextBlock(1,10,10,1000));
-        list.add(new SelectedTextBlock(11,25,2000,2500));
-        list.add(new SelectedTextBlock(30,50,2501,5000));
+//        list.add(new SelectedTextBlock(0,0,-1,0));
+        list.add(new SelectedTextBlock(0,5,0,1000));
+        list.add(new SelectedTextBlock(6,11,2000,2500));
+        list.add(new SelectedTextBlock(12,17,2520,3000));
+        list.add(new SelectedTextBlock(18,21,3020,3500));
+        list.add(new SelectedTextBlock(22,26,4000,5000));
+        list.add(new SelectedTextBlock(28,39,6000,7000));
+        list.add(new SelectedTextBlock(40,51,7020,7500));
+        list.add(new SelectedTextBlock(52,56,8000,9000));
+
         eventBus.changeBody(view.getViewWidget());
-        view.setText(str2, list);
+        view.setText(string, list);
     }
 
 }

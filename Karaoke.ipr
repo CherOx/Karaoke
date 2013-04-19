@@ -198,8 +198,18 @@
       </item>
     </group>
   </component>
-  <component name="ProjectDictionaryState">
-    <dictionary name="Василий" />
+  <component name="ProjectFacetManager">
+    <default-configurations>
+      <entry facet-type="gwt">
+        <default-facet-configuration>
+          <configuration>
+            <setting name="compilerMaxHeapSize" value="256" />
+            <setting name="gwtScriptOutputStyle" value="DETAILED" />
+            <setting name="gwtSdkUrl" value="file://C:/Program Files/gwt-2.5.0" />
+          </configuration>
+        </default-facet-configuration>
+      </entry>
+    </default-configurations>
   </component>
   <component name="ProjectModuleManager">
     <modules>

@@ -19,8 +19,9 @@ public class WorkView extends Composite {
 
     TextArea textArea;
     Label label;
-//    final RichTextArea textArea;
-//    RichTextArea.Formatter formatter;
+    Label timeLabel;
+    final RichTextArea richTextArea;
+    RichTextArea.Formatter formatter;
     VerticalPanel vpanel;
     private int counter = 0;
     Timer timer;
@@ -49,15 +50,30 @@ public class WorkView extends Composite {
             public void onClick(ClickEvent event) {
                 textArea.setFocus(true);
                 runTimer();
-//                setSelectionRange(textArea.getElement(), 10, 5);
-//                RichTextArea.Formatter f = textArea.getFormatter();
-//                f.setBackColor("green");
-//                setSelectionRange(textArea.getElement(), 0, 0);
-//                textArea.setFocus(true);
+
+                setSelectionRange(richTextArea.getElement(), 0, 10);
+                formatter.setBackColor("green");
+                setSelectionRange(richTextArea.getElement(), 0, 0);
+                setSelectionRange(richTextArea.getElement(), 0, 10);
+                formatter.removeFormat();
+                setSelectionRange(richTextArea.getElement(), 11, 20);
+                formatter.setBackColor("yellow");
+                setSelectionRange(richTextArea.getElement(), 0, 0);
+                richTextArea.setFocus(true);
             }
         });
+
+        timeLabel = new Label("Time: ");
+
+        richTextArea = new RichTextArea();
+        formatter = richTextArea.getFormatter();
+//        formatter.
+
         vpanel.add(textArea);
         vpanel.add(button);
+        vpanel.add(timeLabel);
+
+        vpanel.add(richTextArea);
 
         initWidget(vpanel);
     }
@@ -69,6 +85,7 @@ public class WorkView extends Composite {
     public void setText(String string, List<SelectedTextBlock> timings){
         this.timings = timings;
         textArea.setText(string);
+        richTextArea.setText(string);
         textArea.setFocus(true);
 //        runTimer();
     }
@@ -125,12 +142,13 @@ public class WorkView extends Composite {
         timer = new Timer() {
             public void run() {
 //                updateSelection();
-                time++;
                 updSelection();
                 updateSelectionLabel();
+                timeLabel.setText("Time: " + Integer.toString(time));
+                time+=20;
             }
         };
-        timer.scheduleRepeating(1);
+        timer.scheduleRepeating(20);
     }
 
     private void updateSelection(){
@@ -139,11 +157,17 @@ public class WorkView extends Composite {
     }
 
     private void updSelection(){
-        if((time >= timings.get(cnt).getTimeStart()) && (time <= timings.get(cnt).getTimeStop())) {
-            textArea.setSelectionRange(timings.get(cnt).getFirstSymbol(), timings.get(cnt).getLastSymbol()-timings.get(cnt).getFirstSymbol());
-        }
-        if(time == timings.get(cnt).getTimeStart()){
-
+//        if((time >= timings.get(cnt).getTimeStart()) && (time <= timings.get(cnt).getTimeStop())) {
+//            textArea.setSelectionRange(timings.get(cnt).getFirstSymbol(), timings.get(cnt).getLastSymbol()-timings.get(cnt).getFirstSymbol());
+//        }
+        if(cnt<=timings.size()){
+            if(time == timings.get(cnt).getTimeStart()){
+                textArea.setSelectionRange(timings.get(cnt).getFirstSymbol(), timings.get(cnt).getLastSymbol()-timings.get(cnt).getFirstSymbol());
+            }
+            if(time == timings.get(cnt).getTimeStop()){
+                textArea.setSelectionRange(0, 0);
+                cnt++;
+            }
         }
     }
 
