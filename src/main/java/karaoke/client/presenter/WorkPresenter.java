@@ -20,7 +20,7 @@ import java.util.List;
 public class WorkPresenter extends BasePresenter<WorkView, MainEventBus> {
 
     String string = "Lorem ipsum dolor sit amet, consectetur adipisicing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua.\n Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat.\n Duis aute irure dolor in reprehenderit in voluptate velit esse cillum dolore eu fugiat nulla pariatur.\n Excepteur sint occaecat cupidatat non proident, sunt in culpa qui officia deserunt mollit anim id est laborum.";
-    int[] timings = {100, 500, 1000,100,500,1000,100,500,1000,100,500,1000,100,500,1000,100,500,1000,100,500,1000};
+    int[] timings = {100,500,1000,100,500,1000,100,500,1000,100,500,1000,100,500,1000,100,500,1000,100,500,1000};
     String str2 =  "{100-500}Lorem ipsum {600-1000}dolor sit amet, {1001-2000}consectetur adipisicing elit, {3000-5000}sed do eiusmod tempor {5001-5500}incididunt ut labore et dolore magna aliqua.\n Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat.\n Duis aute irure dolor in reprehenderit in voluptate velit esse cillum dolore eu fugiat nulla pariatur.\n Excepteur sint occaecat cupidatat non proident, sunt in culpa qui officia deserunt mollit anim id est laborum.";
 //    SelectedTextBlock[] stb = new SelectedTextBlock[4]{new SelectedTextBlock(1,10,10,1000), };
     ArrayList<SelectedTextBlock> list = new ArrayList<SelectedTextBlock>();
