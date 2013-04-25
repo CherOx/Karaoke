@@ -37,7 +37,8 @@ public class WorkView extends Composite {
 
         textArea = new TextArea();
         textArea.ensureDebugId("cwBasicText-textarea");
-        textArea.setVisibleLines(25);
+        textArea.setVisibleLines(10);
+        textArea.setWidth("800px");
         vpanel.add(new HTML("<br><br>" + "Selected"));
         vpanel.add(createTextExample(textArea, true));
 
@@ -48,18 +49,23 @@ public class WorkView extends Composite {
         button.addClickHandler(new ClickHandler() {
             @Override
             public void onClick(ClickEvent event) {
-                textArea.setFocus(true);
-                runTimer();
+                richTextArea.setFocus(true);
+//                runTimer();
+//                richTextArea.getElement().setId("rta");
+//                updateSelection();
 
-                setSelectionRange(richTextArea.getElement(), 0, 10);
+                setSelectionRange(richTextArea.getElement(), 5, 15);
                 formatter.setBackColor("green");
                 setSelectionRange(richTextArea.getElement(), 0, 0);
-                setSelectionRange(richTextArea.getElement(), 0, 10);
+                formatter.selectAll();
                 formatter.removeFormat();
+                setSelectionRange(richTextArea.getElement(), 0, 0);
                 setSelectionRange(richTextArea.getElement(), 11, 20);
                 formatter.setBackColor("yellow");
                 setSelectionRange(richTextArea.getElement(), 0, 0);
                 richTextArea.setFocus(true);
+
+                updateSelectionLabel();
             }
         });
 
@@ -141,19 +147,27 @@ public class WorkView extends Composite {
     public void runTimer() {
         timer = new Timer() {
             public void run() {
-//                updateSelection();
-                updSelection();
-                updateSelectionLabel();
+                updateSelection();
+//                updSelection();
+//                updateSelectionLabel();
                 timeLabel.setText("Time: " + Integer.toString(time));
                 time+=20;
             }
         };
-        timer.scheduleRepeating(20);
+        timer.scheduleRepeating(2000);
     }
 
     private void updateSelection(){
-        textArea.setSelectionRange(counter, 1);
-        counter+=1;
+
+        setSelectionRange(richTextArea.getElement(), 5, 15);
+//        formatter.setBackColor("green");
+//        setSelectionRange(richTextArea.getElement(), 0, 0);
+//        formatter.selectAll();
+//        formatter.removeFormat();
+//        setSelectionRange(richTextArea.getElement(), 11, 20);
+//        formatter.setBackColor("yellow");
+//        setSelectionRange(richTextArea.getElement(), 0, 0);
+//        richTextArea.setFocus(true);
     }
 
     private void updSelection(){
@@ -194,29 +208,80 @@ public class WorkView extends Composite {
 
     public native void setSelectionRange(Element elem, int pos, int length) /*-{
         try {
-            var selection = null, range2 = null;
+            var sel = null, range2 = null;
+            $wnd.alert("setSelectionRange");
             var iframeWindow = elem.contentWindow;
+            $wnd.alert("iframeWindow");
             var iframeDocument = iframeWindow.document;
+            $wnd.alert("iframeDocument");
 
-            selection = iframeWindow.getSelection();
-            range2 = selection.getRangeAt(0);
-
-            //create new range
+            sel = iframeWindow.getSelection();
+            $wnd.alert("sel");
+            range2 = sel.getRangeAt(0);
+            $wnd.alert("range2");
             var range = iframeDocument.createRange();
-            range.setStart(selection.anchorNode, pos);
-            range.setEnd(selection.anchorNode, pos+length);
+            $wnd.alert("range");
+            range.setStart(sel., pos);
+            range.setEnd(sel.anchorNode, pos + length);
+            $wnd.alert(range.toString());
 
-            //remove the old range and add the newly created range
-            if (selection.removeRange) { // Firefox, Opera, IE after version 9
-                selection.removeRange(range2);
+            if (sel.removeRange) { // Firefox, Opera, IE after version 9
+                sel.removeRange(range2);
+                $wnd.alert("removeRange");
             } else {
-                if (selection.removeAllRanges) { // Safari, Google Chrome
-                    selection.removeAllRanges();
+                if (sel.removeAllRanges) { // Safari, Google Chrome
+                    sel.removeAllRanges();
+                    $wnd.alert("removeAllRanges");
                 }
             }
-            selection.addRange(range);
+
+            sel.addRange(range);
+            $wnd.alert("addRange");
         } catch (e) {
             $wnd.alert(e);
         }
+//        var selection = iframeWindow.setSelectionRange();
+//        var target = document.getElementsByClassName('gwt-RichTextArea').getElementsByTagName('body')[0];
+//        var rng = document.createRange();
+//        $wnd.alert(target.toString());
+//        rng.selectNode( target );
+//        var sel = window.getSelection();
+//        sel.removeAllRanges();
+//        sel.addRange( rng );
     }-*/;
+
+//    public native void setSelectionRange(Element elem, int pos, int length) /*-{
+//        try {
+//            var selection = null, range2 = null;
+//            var iframeWindow = elem.contentWindow;
+//            $wnd.alert("iframeWindow");
+//            var iframeDocument = iframeWindow.document;
+//            $wnd.alert("iframeDocument");
+//
+//            selection = iframeWindow.getSelection();
+//            $wnd.alert("selection");
+//            range2 = selection.getRangeAt(0);
+//            $wnd.alert("range2");
+//
+//            //create new range
+//            var range = iframeDocument.createRange();
+//            $wnd.alert("range");
+//            range.setStart(selection.anchorNode, pos);
+//            $wnd.alert("setStart");
+//            range.setEnd(selection.anchorNode, pos+length);
+//            $wnd.alert("setEnd");
+//
+//            //remove the old range and add the newly created range
+//            if (selection.removeRange) { // Firefox, Opera, IE after version 9
+//                selection.removeRange(range2);
+//            } else {
+//                if (selection.removeAllRanges) { // Safari, Google Chrome
+//                    selection.removeAllRanges();
+//                }
+//            }
+//            selection.addRange(range);
+//        } catch (e) {
+//            $wnd.alert(e);
+//        }
+//    }-*/;
 }
