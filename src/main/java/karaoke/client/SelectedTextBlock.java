@@ -14,11 +14,11 @@ public class SelectedTextBlock {
     private int timeStart;
     private int timeStop;
 
-    public SelectedTextBlock(int fs, int ls, int tstart, int tstop){
-        firstSymbol = fs;
-        lastSymbol = ls;
-        timeStart = tstart;
-        timeStop = tstop;
+    public SelectedTextBlock(int firstSymbol, int lastSymbol, int timeStart, int timeStop){
+        this.firstSymbol = firstSymbol;
+        this.lastSymbol = lastSymbol;
+        this.timeStart = timeStart;
+        this.timeStop = timeStop;
     }
 
     public int getFirstSymbol() {
@@ -36,4 +36,20 @@ public class SelectedTextBlock {
     public int getTimeStop() {
         return timeStop;
     }
+
+//    public void setFirstSymbol(int firstSymbol) {
+//        this.firstSymbol = firstSymbol;
+//    }
+//
+//    public void setLastSymbol(int lastSymbol) {
+//        this.lastSymbol = lastSymbol;
+//    }
+//
+//    public void setTimeStart(int timeStart) {
+//        this.timeStart = timeStart;
+//    }
+//
+//    public void setTimeStop(int timeStop) {
+//        this.timeStop = timeStop;
+//    }
 }

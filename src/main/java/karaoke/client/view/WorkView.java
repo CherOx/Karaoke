@@ -20,13 +20,13 @@ public class WorkView extends Composite {
     TextArea textArea;
     Label label;
     Label timeLabel;
-    final RichTextArea richTextArea;
-    RichTextArea.Formatter formatter;
+//    final RichTextArea richTextArea;
+//    RichTextArea.Formatter formatter;
     VerticalPanel vpanel;
     private int counter = 0;
     Timer timer;
     List<SelectedTextBlock> timings;
-    int currentWord = 0;
+//    int currentWord = 0;
     int cnt = 0;
     int time = 0;
 
@@ -49,37 +49,36 @@ public class WorkView extends Composite {
         button.addClickHandler(new ClickHandler() {
             @Override
             public void onClick(ClickEvent event) {
-                richTextArea.setFocus(true);
-//                runTimer();
+                textArea.setFocus(true);
+                runTimer();
 //                richTextArea.getElement().setId("rta");
 //                updateSelection();
 
-                setSelectionRange(richTextArea.getElement(), 5, 15);
-                formatter.setBackColor("green");
-                setSelectionRange(richTextArea.getElement(), 0, 0);
-                formatter.selectAll();
-                formatter.removeFormat();
-                setSelectionRange(richTextArea.getElement(), 0, 0);
-                setSelectionRange(richTextArea.getElement(), 11, 20);
-                formatter.setBackColor("yellow");
-                setSelectionRange(richTextArea.getElement(), 0, 0);
-                richTextArea.setFocus(true);
-
+//                setSelectionRange(richTextArea.getElement(), 5, 15);
+//                formatter.setBackColor("green");
+//                setSelectionRange(richTextArea.getElement(), 0, 0);
+//                formatter.selectAll();
+//                formatter.removeFormat();
+//                setSelectionRange(richTextArea.getElement(), 0, 0);
+//                setSelectionRange(richTextArea.getElement(), 11, 20);
+//                formatter.setBackColor("yellow");
+//                setSelectionRange(richTextArea.getElement(), 0, 0);
+//                richTextArea.setFocus(true);
+//
                 updateSelectionLabel();
             }
         });
 
         timeLabel = new Label("Time: ");
 
-        richTextArea = new RichTextArea();
-        formatter = richTextArea.getFormatter();
-//        formatter.
+//        richTextArea = new RichTextArea();
+//        formatter = richTextArea.getFormatter();
 
         vpanel.add(textArea);
         vpanel.add(button);
         vpanel.add(timeLabel);
 
-        vpanel.add(richTextArea);
+//        vpanel.add(richTextArea);
 
         initWidget(vpanel);
     }
@@ -91,8 +90,8 @@ public class WorkView extends Composite {
     public void setText(String string, List<SelectedTextBlock> timings){
         this.timings = timings;
         textArea.setText(string);
-        richTextArea.setText(string);
-        textArea.setFocus(true);
+//        richTextArea.setText(string);
+//        textArea.setFocus(true);
 //        runTimer();
     }
 
@@ -147,28 +146,28 @@ public class WorkView extends Composite {
     public void runTimer() {
         timer = new Timer() {
             public void run() {
-                updateSelection();
-//                updSelection();
-//                updateSelectionLabel();
+//                updateSelection();
+                updSelection();
+                updateSelectionLabel();
                 timeLabel.setText("Time: " + Integer.toString(time));
                 time+=20;
             }
         };
-        timer.scheduleRepeating(2000);
+        timer.scheduleRepeating(20);
     }
 
-    private void updateSelection(){
-
-        setSelectionRange(richTextArea.getElement(), 5, 15);
-//        formatter.setBackColor("green");
-//        setSelectionRange(richTextArea.getElement(), 0, 0);
-//        formatter.selectAll();
-//        formatter.removeFormat();
-//        setSelectionRange(richTextArea.getElement(), 11, 20);
-//        formatter.setBackColor("yellow");
-//        setSelectionRange(richTextArea.getElement(), 0, 0);
-//        richTextArea.setFocus(true);
-    }
+//    private void updateSelection(){
+//
+////        setSelectionRange(richTextArea.getElement(), 5, 15);
+////        formatter.setBackColor("green");
+////        setSelectionRange(richTextArea.getElement(), 0, 0);
+////        formatter.selectAll();
+////        formatter.removeFormat();
+////        setSelectionRange(richTextArea.getElement(), 11, 20);
+////        formatter.setBackColor("yellow");
+////        setSelectionRange(richTextArea.getElement(), 0, 0);
+////        richTextArea.setFocus(true);
+//    }
 
     private void updSelection(){
 //        if((time >= timings.get(cnt).getTimeStart()) && (time <= timings.get(cnt).getTimeStop())) {
@@ -206,49 +205,49 @@ public class WorkView extends Composite {
 //        }
 //    }
 
-    public native void setSelectionRange(Element elem, int pos, int length) /*-{
-        try {
-            var sel = null, range2 = null;
-            $wnd.alert("setSelectionRange");
-            var iframeWindow = elem.contentWindow;
-            $wnd.alert("iframeWindow");
-            var iframeDocument = iframeWindow.document;
-            $wnd.alert("iframeDocument");
-
-            sel = iframeWindow.getSelection();
-            $wnd.alert("sel");
-            range2 = sel.getRangeAt(0);
-            $wnd.alert("range2");
-            var range = iframeDocument.createRange();
-            $wnd.alert("range");
-            range.setStart(sel., pos);
-            range.setEnd(sel.anchorNode, pos + length);
-            $wnd.alert(range.toString());
-
-            if (sel.removeRange) { // Firefox, Opera, IE after version 9
-                sel.removeRange(range2);
-                $wnd.alert("removeRange");
-            } else {
-                if (sel.removeAllRanges) { // Safari, Google Chrome
-                    sel.removeAllRanges();
-                    $wnd.alert("removeAllRanges");
-                }
-            }
-
-            sel.addRange(range);
-            $wnd.alert("addRange");
-        } catch (e) {
-            $wnd.alert(e);
-        }
-//        var selection = iframeWindow.setSelectionRange();
-//        var target = document.getElementsByClassName('gwt-RichTextArea').getElementsByTagName('body')[0];
-//        var rng = document.createRange();
-//        $wnd.alert(target.toString());
-//        rng.selectNode( target );
-//        var sel = window.getSelection();
-//        sel.removeAllRanges();
-//        sel.addRange( rng );
-    }-*/;
+//    public native void setSelectionRange(Element elem, int pos, int length) /*-{
+//        try {
+//            var sel = null, range2 = null;
+//            $wnd.alert("setSelectionRange");
+//            var iframeWindow = elem.contentWindow;
+//            $wnd.alert("iframeWindow");
+//            var iframeDocument = iframeWindow.document;
+//            $wnd.alert("iframeDocument");
+//
+//            sel = iframeWindow.getSelection();
+//            $wnd.alert("sel");
+//            range2 = sel.getRangeAt(0);
+//            $wnd.alert("range2");
+//            var range = iframeDocument.createRange();
+//            $wnd.alert("range");
+//            range.setStart(sel.anchorNode, pos);
+//            range.setEnd(sel.anchorNode, pos + length);
+//            $wnd.alert(range.toString());
+//
+//            if (sel.removeRange) { // Firefox, Opera, IE after version 9
+//                sel.removeRange(range2);
+//                $wnd.alert("removeRange");
+//            } else {
+//                if (sel.removeAllRanges) { // Safari, Google Chrome
+//                    sel.removeAllRanges();
+//                    $wnd.alert("removeAllRanges");
+//                }
+//            }
+//
+//            sel.addRange(range);
+//            $wnd.alert("addRange");
+//        } catch (e) {
+//            $wnd.alert(e);
+//        }
+////        var selection = iframeWindow.setSelectionRange();
+////        var target = document.getElementsByClassName('gwt-RichTextArea').getElementsByTagName('body')[0];
+////        var rng = document.createRange();
+////        $wnd.alert(target.toString());
+////        rng.selectNode( target );
+////        var sel = window.getSelection();
+////        sel.removeAllRanges();
+////        sel.addRange( rng );
+//    }-*/;
 
 //    public native void setSelectionRange(Element elem, int pos, int length) /*-{
 //        try {

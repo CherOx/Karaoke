@@ -3,6 +3,7 @@ package karaoke.client;
 import com.google.gwt.user.client.ui.Widget;
 import com.mvp4g.client.annotation.Start;
 import com.mvp4g.client.event.EventBus;
+import karaoke.client.presenter.EditorPresenter;
 import karaoke.client.presenter.RootPresenter;
 import karaoke.client.presenter.WorkPresenter;
 import com.mvp4g.client.annotation.Event;
@@ -19,7 +20,7 @@ import com.mvp4g.client.annotation.Events;
 public interface MainEventBus extends EventBus {
 
     @Start
-    @Event(handlers = {RootPresenter.class, WorkPresenter.class})
+    @Event(handlers = {RootPresenter.class, WorkPresenter.class, EditorPresenter.class})
     public void start();
 
     @Event(handlers = {RootPresenter.class})

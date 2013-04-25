@@ -14,7 +14,7 @@ public class RootView extends Composite {
     private Label message = new Label();
     private SimplePanel body = new SimplePanel();
 
-    RootView(){
+    RootView() {
         VerticalPanel mainPanel = new VerticalPanel();
         mainPanel.add(message);
         mainPanel.add(body);
