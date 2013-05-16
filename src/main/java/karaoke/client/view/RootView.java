@@ -1,5 +1,6 @@
 package karaoke.client.view;
 
+import com.google.gwt.event.dom.client.HasClickHandlers;
 import com.google.gwt.user.client.ui.*;
 
 /**
@@ -13,12 +14,26 @@ public class RootView extends Composite {
 
     private Label message = new Label();
     private SimplePanel body = new SimplePanel();
+    private Button setWork;
+    private Button setEditor;
 
     RootView() {
         VerticalPanel mainPanel = new VerticalPanel();
         mainPanel.add(message);
         mainPanel.add(body);
+        setWork = new Button("SetWorkView");
+        mainPanel.add(setWork);
+        setEditor = new Button("SetEditorView");
+        mainPanel.add(setEditor);
         initWidget(mainPanel);
+    }
+
+    public HasClickHandlers getButtonWork() {
+        return setWork;
+    }
+
+    public HasClickHandlers getButtonEditor() {
+        return setEditor;
     }
 
     public HasText getMessage() {

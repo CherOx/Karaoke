@@ -1,4 +1,4 @@
-package karaoke.client;
+package karaoke.client.service;
 
 /**
  * Created with IntelliJ IDEA.

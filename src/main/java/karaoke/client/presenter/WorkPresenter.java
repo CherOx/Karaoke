@@ -1,13 +1,12 @@
 package karaoke.client.presenter;
 
 import karaoke.client.MainEventBus;
-import karaoke.client.SelectedTextBlock;
+import karaoke.client.service.SelectedTextBlock;
 import karaoke.client.view.WorkView;
 import com.mvp4g.client.annotation.Presenter;
 import com.mvp4g.client.presenter.BasePresenter;
 
 import java.util.ArrayList;
-import java.util.List;
 
 /**
  * Created with IntelliJ IDEA.
@@ -40,4 +39,8 @@ public class WorkPresenter extends BasePresenter<WorkView, MainEventBus> {
         view.setText(string, list);
     }
 
+    public void onShowWork()
+    {
+        eventBus.changeBody(view.getViewWidget());
+    }
 }

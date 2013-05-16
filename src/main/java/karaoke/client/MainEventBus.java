@@ -20,7 +20,7 @@ import com.mvp4g.client.annotation.Events;
 public interface MainEventBus extends EventBus {
 
     @Start
-    @Event(handlers = {RootPresenter.class, WorkPresenter.class, EditorPresenter.class})
+    @Event(handlers = {RootPresenter.class, EditorPresenter.class})
     public void start();
 
     @Event(handlers = {RootPresenter.class})
@@ -28,4 +28,10 @@ public interface MainEventBus extends EventBus {
 
     @Event(handlers = {RootPresenter.class})
     public void displayMessage(String string);
+
+    @Event(handlers = {WorkPresenter.class})
+    public void showWork();
+
+    @Event(handlers = {EditorPresenter.class})
+    public void showEditor();
 }

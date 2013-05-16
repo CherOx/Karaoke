@@ -1,17 +1,12 @@
 package karaoke.client.view;
 
-import com.google.gwt.core.client.GWT;
-import com.google.gwt.dom.client.Element;
-import com.google.gwt.dom.client.SpanElement;
 import com.google.gwt.event.dom.client.ClickEvent;
 import com.google.gwt.event.dom.client.ClickHandler;
 import com.google.gwt.event.dom.client.KeyUpEvent;
 import com.google.gwt.event.dom.client.KeyUpHandler;
-import com.google.gwt.uibinder.client.UiBinder;
-import com.google.gwt.uibinder.client.UiField;
 import com.google.gwt.user.client.Timer;
 import com.google.gwt.user.client.ui.*;
-import karaoke.client.SelectedTextBlock;
+import karaoke.client.service.SelectedTextBlock;
 
 import java.util.List;
 
@@ -20,13 +15,10 @@ public class WorkView extends Composite {
     TextArea textArea;
     Label label;
     Label timeLabel;
-//    final RichTextArea richTextArea;
-//    RichTextArea.Formatter formatter;
     VerticalPanel vpanel;
     private int counter = 0;
     Timer timer;
     List<SelectedTextBlock> timings;
-//    int currentWord = 0;
     int cnt = 0;
     int time = 0;
 
@@ -41,45 +33,20 @@ public class WorkView extends Composite {
         textArea.setWidth("800px");
         vpanel.add(new HTML("<br><br>" + "Selected"));
         vpanel.add(createTextExample(textArea, true));
-
-//        textArea = new TextBox();
-//        textArea.setText("Some not long Text!");
-//        formatter = textArea.getFormatter();
         Button button = new Button("Run");
         button.addClickHandler(new ClickHandler() {
             @Override
             public void onClick(ClickEvent event) {
                 textArea.setFocus(true);
                 runTimer();
-//                richTextArea.getElement().setId("rta");
-//                updateSelection();
-
-//                setSelectionRange(richTextArea.getElement(), 5, 15);
-//                formatter.setBackColor("green");
-//                setSelectionRange(richTextArea.getElement(), 0, 0);
-//                formatter.selectAll();
-//                formatter.removeFormat();
-//                setSelectionRange(richTextArea.getElement(), 0, 0);
-//                setSelectionRange(richTextArea.getElement(), 11, 20);
-//                formatter.setBackColor("yellow");
-//                setSelectionRange(richTextArea.getElement(), 0, 0);
-//                richTextArea.setFocus(true);
-//
                 updateSelectionLabel();
             }
         });
 
         timeLabel = new Label("Time: ");
-
-//        richTextArea = new RichTextArea();
-//        formatter = richTextArea.getFormatter();
-
         vpanel.add(textArea);
         vpanel.add(button);
         vpanel.add(timeLabel);
-
-//        vpanel.add(richTextArea);
-
         initWidget(vpanel);
     }
 
@@ -90,9 +57,6 @@ public class WorkView extends Composite {
     public void setText(String string, List<SelectedTextBlock> timings){
         this.timings = timings;
         textArea.setText(string);
-//        richTextArea.setText(string);
-//        textArea.setFocus(true);
-//        runTimer();
     }
 
     /**
@@ -155,19 +119,6 @@ public class WorkView extends Composite {
         };
         timer.scheduleRepeating(20);
     }
-
-//    private void updateSelection(){
-//
-////        setSelectionRange(richTextArea.getElement(), 5, 15);
-////        formatter.setBackColor("green");
-////        setSelectionRange(richTextArea.getElement(), 0, 0);
-////        formatter.selectAll();
-////        formatter.removeFormat();
-////        setSelectionRange(richTextArea.getElement(), 11, 20);
-////        formatter.setBackColor("yellow");
-////        setSelectionRange(richTextArea.getElement(), 0, 0);
-////        richTextArea.setFocus(true);
-//    }
 
     private void updSelection(){
 //        if((time >= timings.get(cnt).getTimeStart()) && (time <= timings.get(cnt).getTimeStop())) {

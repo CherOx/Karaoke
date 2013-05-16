@@ -18,4 +18,9 @@ public class EditorPresenter extends BasePresenter<EditorView, MainEventBus> {
     public void onStart() {
         eventBus.changeBody(view.getViewWidget());
     }
+
+    public void onShowEditor()
+    {
+        eventBus.changeBody(view.getViewWidget());
+    }
 }

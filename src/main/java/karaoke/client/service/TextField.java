@@ -1,4 +1,4 @@
-package karaoke.client;
+package karaoke.client.service;
 
 import com.google.gwt.event.dom.client.ClickEvent;
 import com.google.gwt.event.dom.client.ClickHandler;

@@ -4,8 +4,9 @@ import com.google.gwt.event.dom.client.ClickEvent;
 import com.google.gwt.event.dom.client.ClickHandler;
 import com.google.gwt.user.client.Window;
 import com.google.gwt.user.client.ui.*;
-import karaoke.client.SelectedTextBlock;
-import karaoke.client.TextField;
+import karaoke.client.service.SelectedTextBlock;
+import karaoke.client.service.Song;
+import karaoke.client.service.TextField;
 
 import java.util.ArrayList;
 //import org.apache.xpath.operations.String;
@@ -23,9 +24,7 @@ public class EditorView extends Composite {
     private TextField textField;
     private TextBox beginTextBox;
     private TextBox endTextBox;
-
-    private ArrayList<String> texts = new ArrayList<String>();
-    private ArrayList<SelectedTextBlock> timings = new ArrayList<SelectedTextBlock>();
+    private Song song;
 
     public EditorView() {
         vpanel = new VerticalPanel();
@@ -63,11 +62,11 @@ public class EditorView extends Composite {
     }
 
     private void SaveText() {
-        texts.add(textField.getText());
-        Window.alert(textField.getText());
+        song = new Song("Там высоко", textField.getText());
+        Window.alert("Song 'Там высоко' saved");
     }
 
     private void SaveTime() {
-        timings.add(new SelectedTextBlock(textField.getSelectionBegin(), textField.getSelectionEnd(), Integer.parseInt(beginTextBox.getText()), Integer.parseInt(endTextBox.getText())));
+        song.addTiming(new SelectedTextBlock(textField.getSelectionBegin(), textField.getSelectionEnd(), Integer.parseInt(beginTextBox.getText()), Integer.parseInt(endTextBox.getText())));
     }
 }
