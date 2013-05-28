@@ -1,5 +1,7 @@
 package karaoke.client.service;
 
+import com.google.gwt.user.client.rpc.IsSerializable;
+
 /**
  * Created with IntelliJ IDEA.
  * User: Василий
@@ -7,7 +9,7 @@ package karaoke.client.service;
  * Time: 9:40
  * To change this template use File | Settings | File Templates.
  */
-public class SelectedTextBlock {
+public class SelectedTextBlock implements IsSerializable {
 
     private int firstSymbol;
     private int lastSymbol;
@@ -20,6 +22,8 @@ public class SelectedTextBlock {
         this.timeStart = timeStart;
         this.timeStop = timeStop;
     }
+
+    public SelectedTextBlock(){}
 
     public int getFirstSymbol() {
         return firstSymbol;

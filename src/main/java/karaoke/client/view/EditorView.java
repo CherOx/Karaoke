@@ -21,6 +21,7 @@ import java.util.ArrayList;
 public class EditorView extends Composite {
 
     private VerticalPanel vpanel;
+    private ListBox listBox;
     private TextField textField;
     private TextBox beginTextBox;
     private TextBox endTextBox;
@@ -29,6 +30,16 @@ public class EditorView extends Composite {
     public EditorView() {
         vpanel = new VerticalPanel();
         vpanel.setSpacing(5);
+
+        listBox = new ListBox(false);
+        listBox.ensureDebugId("cwListBox-multiBox");
+        listBox.setWidth("11em");
+        listBox.setVisibleItemCount(10);
+        VerticalPanel listBoxPanel = new VerticalPanel();
+        listBoxPanel.setSpacing(4);
+        listBoxPanel.add(new HTML("Select song"));
+        listBoxPanel.add(listBox);
+        vpanel.add(listBoxPanel);
 
         textField = new TextField();
         beginTextBox = new TextBox();

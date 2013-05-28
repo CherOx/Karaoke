@@ -10,4 +10,15 @@
     <welcome-file>karaoke.html</welcome-file>
   </welcome-file-list>
 
+  <!-- Servlets -->
+  <servlet>
+    <servlet-name>songService</servlet-name>
+    <servlet-class>karaoke.server.SongServiceImpl</servlet-class>
+  </servlet>
+
+  <servlet-mapping>
+    <servlet-name>songService</servlet-name>
+    <url-pattern>/karaoke/songService</url-pattern>
+  </servlet-mapping>
+
 </web-app>

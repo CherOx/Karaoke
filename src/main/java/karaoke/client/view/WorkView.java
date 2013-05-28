@@ -13,6 +13,7 @@ import java.util.List;
 public class WorkView extends Composite {
 
     TextArea textArea;
+    ListBox listBox;
     Label label;
     Label timeLabel;
     VerticalPanel vpanel;
@@ -26,6 +27,16 @@ public class WorkView extends Composite {
 
         vpanel = new VerticalPanel();
         vpanel.setSpacing(5);
+
+        listBox = new ListBox(false);
+        listBox.ensureDebugId("cwListBox-multiBox");
+        listBox.setWidth("11em");
+        listBox.setVisibleItemCount(10);
+        VerticalPanel listBoxPanel = new VerticalPanel();
+        listBoxPanel.setSpacing(4);
+        listBoxPanel.add(new HTML("Select song"));
+        listBoxPanel.add(listBox);
+        vpanel.add(listBoxPanel);
 
         textArea = new TextArea();
         textArea.ensureDebugId("cwBasicText-textarea");
@@ -47,6 +58,7 @@ public class WorkView extends Composite {
         vpanel.add(textArea);
         vpanel.add(button);
         vpanel.add(timeLabel);
+
         initWidget(vpanel);
     }
 
@@ -57,6 +69,16 @@ public class WorkView extends Composite {
     public void setText(String string, List<SelectedTextBlock> timings){
         this.timings = timings;
         textArea.setText(string);
+    }
+
+    public ListBox getSongListBox()
+    {
+        return listBox;
+    }
+
+    public TextArea getTextArea()
+    {
+        return textArea;
     }
 
     /**
