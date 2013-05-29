@@ -46,7 +46,7 @@ public class SongServiceImpl extends RemoteServiceServlet implements SongService
             timings = new ArrayList<SelectedTextBlock>();
             for (int j = 0; j < 5; ++j)
             {
-                timings.add(new SelectedTextBlock(j*6, j*6+5, j+1, j+2));
+                timings.add(new SelectedTextBlock(j*6, j*6+5, (j+1)*1000+20, (j+2)*1000));
             }
             song.setTimings(timings);
 

@@ -2,8 +2,12 @@ package karaoke.client.presenter;
 
 import com.google.gwt.event.dom.client.ClickEvent;
 import com.google.gwt.event.dom.client.ClickHandler;
+import com.google.gwt.event.dom.client.KeyUpEvent;
+import com.google.gwt.event.dom.client.KeyUpHandler;
+import com.google.gwt.user.client.Timer;
 import com.google.gwt.user.client.Window;
 import com.google.gwt.user.client.rpc.AsyncCallback;
+import com.google.gwt.user.client.ui.Label;
 import com.google.gwt.user.client.ui.ListBox;
 import com.google.gwt.user.client.ui.TextArea;
 import com.google.gwt.user.client.ui.TextBox;
@@ -38,31 +42,48 @@ public class WorkPresenter extends BasePresenter<WorkView, MainEventBus> {
 
     protected List<SongBean> songs;
 
+    private List<SelectedTextBlock> timings;
+//    private Label selectionLabel;
+    private Timer timer;
+    private int time = 0;
+    private int cnt = 0;
+
     @Inject
     private SongServiceAsync service;
 
     @Override
     public void bind()
     {
+//        selectionLabel = view.getSelectionLabel();
         view.getSongListBox().addClickHandler(new ClickHandler() {
             @Override
             public void onClick(ClickEvent event) {
                 eventBus.selectSong(songs.get(view.getSongListBox().getSelectedIndex()));
             }
         });
+        // Add a KeyUpHandler
+        view.getTextArea().addKeyUpHandler(new KeyUpHandler() {
+            public void onKeyUp(KeyUpEvent event) {
+                updateSelectionLabel();
+            }
+        });
+        // Add a ClickHandler
+        view.getTextArea().addClickHandler(new ClickHandler() {
+            public void onClick(ClickEvent event) {
+                updateSelectionLabel();
+            }
+        });
+        view.getButtonRun().addClickHandler(new ClickHandler() {
+            @Override
+            public void onClick(ClickEvent event) {
+                view.getTextArea().setFocus(true);
+                runTimer();
+                updateSelectionLabel();
+            }
+        });
     }
 
     public void onStart() {
-//        list.add(new SelectedTextBlock(0,0,-1,0));
-//        list.add(new SelectedTextBlock(0,5,0,1000));
-//        list.add(new SelectedTextBlock(6,11,2000,2500));
-//        list.add(new SelectedTextBlock(12,17,2520,3000));
-//        list.add(new SelectedTextBlock(18,21,3020,3500));
-//        list.add(new SelectedTextBlock(22,26,4000,5000));
-//        list.add(new SelectedTextBlock(28,39,6000,7000));
-//        list.add(new SelectedTextBlock(40,51,7020,7500));
-//        list.add(new SelectedTextBlock(52,56,8000,9000));
-//        view.setText(string, list);
         service.getSongs(new AsyncCallback<List<SongBean>>() {
 
             public void onFailure(Throwable caught)
@@ -76,8 +97,6 @@ public class WorkPresenter extends BasePresenter<WorkView, MainEventBus> {
             }
 
         });
-//        setSongs(service.getSongs());
-//        eventBus.changeBody(view.getViewWidget());
     }
 
     void setSongs(List<SongBean> songs) {
@@ -103,5 +122,42 @@ public class WorkPresenter extends BasePresenter<WorkView, MainEventBus> {
         TextArea textArea = view.getTextArea();
         textArea.setText("");
         textArea.setText(song.getText());
+        timings = song.getTimings();
+        view.getTimeLabel().setText(Integer.toString(timings.get(0).getFirstSymbol())+' '+Integer.toString(timings.get(0).getLastSymbol())+' '+Integer.toString(timings.get(0).getTimeStart())+' '+Integer.toString(timings.get(0).getTimeStop()));
+    }
+
+    /**
+     * Update the text in one of the selection labels.
+     */
+    private void updateSelectionLabel() {
+        view.getSelectionLabel().setText("Selected" + ": " + view.getTextArea().getCursorPos() + ", " + view.getTextArea().getSelectionLength());
+    }
+
+    public void runTimer() {
+        timer = new Timer() {
+            public void run() {
+                updateSelectionLabel();
+                updateSelection();
+                view.getTimeLabel().setText("Time: " + Integer.toString(time));
+                time+=20;
+            }
+        };
+        timer.scheduleRepeating(20);
+    }
+
+    private void updateSelection()
+    {
+//        if((time >= timings.get(cnt).getTimeStart()) && (time <= timings.get(cnt).getTimeStop())) {
+//            textArea.setSelectionRange(timings.get(cnt).getFirstSymbol(), timings.get(cnt).getLastSymbol()-timings.get(cnt).getFirstSymbol());
+//        }
+        if(cnt<=timings.size()){
+            if(time == timings.get(cnt).getTimeStart()){
+                view.getTextArea().setSelectionRange(timings.get(cnt).getFirstSymbol(), timings.get(cnt).getLastSymbol()-timings.get(cnt).getFirstSymbol());
+            }
+            if(time == timings.get(cnt).getTimeStop()){
+                view.getTextArea().setSelectionRange(0, 0);
+                cnt++;
+            }
+        }
     }
 }

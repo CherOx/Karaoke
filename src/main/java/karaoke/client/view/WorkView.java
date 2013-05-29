@@ -17,11 +17,12 @@ public class WorkView extends Composite {
     Label label;
     Label timeLabel;
     VerticalPanel vpanel;
+    Button buttonRun;
     private int counter = 0;
-    Timer timer;
+//    Timer timer;
     List<SelectedTextBlock> timings;
-    int cnt = 0;
-    int time = 0;
+//    int cnt = 0;
+//    int time = 0;
 
     public WorkView() {
 
@@ -44,19 +45,21 @@ public class WorkView extends Composite {
         textArea.setWidth("800px");
         vpanel.add(new HTML("<br><br>" + "Selected"));
         vpanel.add(createTextExample(textArea, true));
-        Button button = new Button("Run");
-        button.addClickHandler(new ClickHandler() {
-            @Override
-            public void onClick(ClickEvent event) {
-                textArea.setFocus(true);
-                runTimer();
-                updateSelectionLabel();
-            }
-        });
+
+        buttonRun = new Button("Run");
+        vpanel.add(buttonRun);
+//        Button button = new Button("Run");
+//        button.addClickHandler(new ClickHandler() {
+//            @Override
+//            public void onClick(ClickEvent event) {
+//                textArea.setFocus(true);
+//                runTimer();
+//                updateSelectionLabel();
+//            }
+//        });
 
         timeLabel = new Label("Time: ");
         vpanel.add(textArea);
-        vpanel.add(button);
         vpanel.add(timeLabel);
 
         initWidget(vpanel);
@@ -66,10 +69,10 @@ public class WorkView extends Composite {
         return this;
     }
 
-    public void setText(String string, List<SelectedTextBlock> timings){
-        this.timings = timings;
-        textArea.setText(string);
-    }
+//    public void setText(String string, List<SelectedTextBlock> timings){
+//        this.timings = timings;
+//        textArea.setText(string);
+//    }
 
     public ListBox getSongListBox()
     {
@@ -79,6 +82,21 @@ public class WorkView extends Composite {
     public TextArea getTextArea()
     {
         return textArea;
+    }
+
+    public Label getSelectionLabel()
+    {
+        return label;
+    }
+
+    public Button getButtonRun()
+    {
+        return buttonRun;
+    }
+
+    public Label getTimeLabel()
+    {
+        return timeLabel;
     }
 
     /**
@@ -100,19 +118,19 @@ public class WorkView extends Composite {
             // Create the new label
             label = new Label("Selected" + ": 0, 0");
 
-            // Add a KeyUpHandler
-            textBox.addKeyUpHandler(new KeyUpHandler() {
-                public void onKeyUp(KeyUpEvent event) {
-                    updateSelectionLabel();
-                }
-            });
-
-            // Add a ClickHandler
-            textBox.addClickHandler(new ClickHandler() {
-                public void onClick(ClickEvent event) {
-                    updateSelectionLabel();
-                }
-            });
+//            // Add a KeyUpHandler
+//            textBox.addKeyUpHandler(new KeyUpHandler() {
+//                public void onKeyUp(KeyUpEvent event) {
+//                    updateSelectionLabel();
+//                }
+//            });
+//
+//            // Add a ClickHandler
+//            textBox.addClickHandler(new ClickHandler() {
+//                public void onClick(ClickEvent event) {
+//                    updateSelectionLabel();
+//                }
+//            });
 
             // Add the label to the box
             hPanel.add(label);
@@ -122,40 +140,40 @@ public class WorkView extends Composite {
         return hPanel;
     }
 
-    /**
-     * Update the text in one of the selection labels.
-     */
-    private void updateSelectionLabel() {
-        label.setText("Selected" + ": " + textArea.getCursorPos() + ", " + textArea.getSelectionLength());
-    }
+//    /**
+//     * Update the text in one of the selection labels.
+//     */
+//    private void updateSelectionLabel() {
+//        label.setText("Selected" + ": " + textArea.getCursorPos() + ", " + textArea.getSelectionLength());
+//    }
 
-    public void runTimer() {
-        timer = new Timer() {
-            public void run() {
-//                updateSelection();
-                updSelection();
-                updateSelectionLabel();
-                timeLabel.setText("Time: " + Integer.toString(time));
-                time+=20;
-            }
-        };
-        timer.scheduleRepeating(20);
-    }
+//    public void runTimer() {
+//        timer = new Timer() {
+//            public void run() {
+////                updateSelection();
+//                updSelection();
+////                updateSelectionLabel();
+//                timeLabel.setText("Time: " + Integer.toString(time));
+//                time+=20;
+//            }
+//        };
+//        timer.scheduleRepeating(20);
+//    }
 
-    private void updSelection(){
-//        if((time >= timings.get(cnt).getTimeStart()) && (time <= timings.get(cnt).getTimeStop())) {
-//            textArea.setSelectionRange(timings.get(cnt).getFirstSymbol(), timings.get(cnt).getLastSymbol()-timings.get(cnt).getFirstSymbol());
+//    private void updSelection(){
+////        if((time >= timings.get(cnt).getTimeStart()) && (time <= timings.get(cnt).getTimeStop())) {
+////            textArea.setSelectionRange(timings.get(cnt).getFirstSymbol(), timings.get(cnt).getLastSymbol()-timings.get(cnt).getFirstSymbol());
+////        }
+//        if(cnt<=timings.size()){
+//            if(time == timings.get(cnt).getTimeStart()){
+//                textArea.setSelectionRange(timings.get(cnt).getFirstSymbol(), timings.get(cnt).getLastSymbol()-timings.get(cnt).getFirstSymbol());
+//            }
+//            if(time == timings.get(cnt).getTimeStop()){
+//                textArea.setSelectionRange(0, 0);
+//                cnt++;
+//            }
 //        }
-        if(cnt<=timings.size()){
-            if(time == timings.get(cnt).getTimeStart()){
-                textArea.setSelectionRange(timings.get(cnt).getFirstSymbol(), timings.get(cnt).getLastSymbol()-timings.get(cnt).getFirstSymbol());
-            }
-            if(time == timings.get(cnt).getTimeStop()){
-                textArea.setSelectionRange(0, 0);
-                cnt++;
-            }
-        }
-    }
+//    }
 
 //    private void updateSelection(){
 ////        if(counter>=10){
