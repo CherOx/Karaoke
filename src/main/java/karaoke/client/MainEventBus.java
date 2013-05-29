@@ -21,21 +21,26 @@ import com.mvp4g.client.annotation.Events;
 public interface MainEventBus extends EventBus {
 
     @Start
-    @Event(handlers = { RootPresenter.class, WorkPresenter.class })
+    @Event( handlers = { RootPresenter.class, WorkPresenter.class } )
     public void start();
 
-    @Event(handlers = { RootPresenter.class })
+    @Event( handlers = { RootPresenter.class } )
     public void changeBody(Widget widget);
 
-    @Event(handlers = { RootPresenter.class })
+    @Event( handlers = { RootPresenter.class } )
     public void displayMessage(String string);
 
-    @Event(handlers = { WorkPresenter.class })
+    @Event( handlers = { WorkPresenter.class } )
     public void showWork();
 
-    @Event(handlers = { EditorPresenter.class })
+    @Event( handlers = { EditorPresenter.class } )
     public void showEditor();
 
-    @Event( handlers = { WorkPresenter.class })
+//    @Event( handlers = { WorkPresenter.class } )
+//    public void selectSong( SongBean song );
+    @Event( handlers = { EditorPresenter.class } )
     public void selectSong( SongBean song );
+
+    @Event( handlers = { EditorPresenter.class } )
+    public void saveSong( SongBean song );
 }

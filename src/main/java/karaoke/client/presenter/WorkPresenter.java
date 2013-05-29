@@ -40,7 +40,7 @@ public class WorkPresenter extends BasePresenter<WorkView, MainEventBus> {
 //    SelectedTextBlock[] stb = new SelectedTextBlock[4]{new SelectedTextBlock(1,10,10,1000), };
 //    ArrayList<SelectedTextBlock> list = new ArrayList<SelectedTextBlock>();
 
-    protected List<SongBean> songs;
+    private List<SongBean> songs;
 
     private List<SelectedTextBlock> timings;
 //    private Label selectionLabel;
@@ -84,22 +84,24 @@ public class WorkPresenter extends BasePresenter<WorkView, MainEventBus> {
     }
 
     public void onStart() {
-        service.getSongs(new AsyncCallback<List<SongBean>>() {
-
-            public void onFailure(Throwable caught)
-            {
-                Window.alert("Failure");
-            }
-
-            public void onSuccess(List<SongBean> result) {
-                setSongs( result );
-                eventBus.changeBody(view.getViewWidget());
-            }
-
-        });
+        RefreshSongsList();
+        eventBus.changeBody(view.getViewWidget());
+//        service.getSongs(new AsyncCallback<List<SongBean>>() {
+//
+//            public void onFailure(Throwable caught)
+//            {
+//                Window.alert("Error during the song's list reading!");
+//            }
+//
+//            public void onSuccess(List<SongBean> result) {
+//                setSongs( result );
+//                eventBus.changeBody(view.getViewWidget());
+//            }
+//
+//        });
     }
 
-    void setSongs(List<SongBean> songs) {
+    private void setSongs(List<SongBean> songs) {
         this.songs = songs;
         int nbSongs = songs.size();
         for ( int i = 0; i < nbSongs; i++ ) {
@@ -107,13 +109,14 @@ public class WorkPresenter extends BasePresenter<WorkView, MainEventBus> {
         }
     }
 
-    void displaySong( SongBean song ) {
+    private void displaySong( SongBean song ) {
         ListBox table = view.getSongListBox();
         table.addItem(song.getName());
     }
 
     public void onShowWork()
     {
+        RefreshSongsList();
         eventBus.changeBody(view.getViewWidget());
     }
 
@@ -124,6 +127,23 @@ public class WorkPresenter extends BasePresenter<WorkView, MainEventBus> {
         textArea.setText(song.getText());
         timings = song.getTimings();
         view.getTimeLabel().setText(Integer.toString(timings.get(0).getFirstSymbol())+' '+Integer.toString(timings.get(0).getLastSymbol())+' '+Integer.toString(timings.get(0).getTimeStart())+' '+Integer.toString(timings.get(0).getTimeStop()));
+    }
+
+    private void RefreshSongsList()
+    {
+        view.getSongListBox().clear();
+        service.getSongs(new AsyncCallback<List<SongBean>>() {
+
+            public void onFailure(Throwable caught)
+            {
+                Window.alert("Error during the song's list reading!");
+            }
+
+            public void onSuccess(List<SongBean> result) {
+                setSongs( result );
+            }
+
+        });
     }
 
     /**
@@ -139,10 +159,10 @@ public class WorkPresenter extends BasePresenter<WorkView, MainEventBus> {
                 updateSelectionLabel();
                 updateSelection();
                 view.getTimeLabel().setText("Time: " + Integer.toString(time));
-                time+=20;
+                time+=10;
             }
         };
-        timer.scheduleRepeating(20);
+        timer.scheduleRepeating(10);
     }
 
     private void updateSelection()

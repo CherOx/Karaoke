@@ -7,8 +7,6 @@ import com.google.gwt.user.client.ui.*;
 import karaoke.client.service.SelectedTextBlock;
 import karaoke.client.service.Song;
 import karaoke.client.service.TextField;
-
-import java.util.ArrayList;
 //import org.apache.xpath.operations.String;
 
 /**
@@ -21,49 +19,73 @@ import java.util.ArrayList;
 public class EditorView extends Composite {
 
     private VerticalPanel vpanel;
-    private ListBox listBox;
-    private TextField textField;
-    private TextBox beginTextBox;
-    private TextBox endTextBox;
+    private ListBox songsListBox;
+//    private TextField textField;
+    private TextArea textArea;
+    private TextBox nameField;
+    private Button saveButton;
+    private Button updateButton;
+//    private TextBox beginTextBox;
+//    private TextBox endTextBox;
+    private Button newSongButton;
+    private Button editSongButton;
     private Song song;
 
     public EditorView() {
         vpanel = new VerticalPanel();
         vpanel.setSpacing(5);
 
-        listBox = new ListBox(false);
-        listBox.ensureDebugId("cwListBox-multiBox");
-        listBox.setWidth("11em");
-        listBox.setVisibleItemCount(10);
+        songsListBox = new ListBox(false);
+        songsListBox.ensureDebugId("cwListBox-multiBox");
+        songsListBox.setWidth("11em");
+        songsListBox.setVisibleItemCount(10);
         VerticalPanel listBoxPanel = new VerticalPanel();
         listBoxPanel.setSpacing(4);
         listBoxPanel.add(new HTML("Select song"));
-        listBoxPanel.add(listBox);
+        listBoxPanel.add(songsListBox);
         vpanel.add(listBoxPanel);
 
-        textField = new TextField();
-        beginTextBox = new TextBox();
-        endTextBox = new TextBox();
-        Button saveTextButton = new Button("Save Text");
-        saveTextButton.addClickHandler(new ClickHandler() {
-            @Override
-            public void onClick(ClickEvent event) {
-                SaveText();
-            }
-        });
-        Button saveTimeButton = new Button("Save Time");
-        saveTimeButton.addClickHandler(new ClickHandler() {
-            @Override
-            public void onClick(ClickEvent event) {
-                SaveTime();
-            }
-        });
+//        textField = new TextField();
+//        vpanel.add(textField);
+        textArea = new TextArea();
+        vpanel.add(textArea);
 
-        vpanel.add(textField);
-        vpanel.add(beginTextBox);
-        vpanel.add(endTextBox);
-        vpanel.add(saveTextButton);
-        vpanel.add(saveTimeButton);
+//        beginTextBox = new TextBox();
+//        endTextBox = new TextBox();
+//        Button saveTextButton = new Button("Save Text");
+//        saveTextButton.addClickHandler(new ClickHandler() {
+//            @Override
+//            public void onClick(ClickEvent event) {
+//                SaveText();
+//            }
+//        });
+//        Button saveTimeButton = new Button("Save Time");
+//        saveTimeButton.addClickHandler(new ClickHandler() {
+//            @Override
+//            public void onClick(ClickEvent event) {
+//                SaveTime();
+//            }
+//        });
+
+        newSongButton = new Button("Add new song");
+        vpanel.add(newSongButton);
+
+        editSongButton = new Button("Edit song");
+        vpanel.add(editSongButton);
+
+        nameField = new TextBox();
+        vpanel.add(nameField);
+
+        saveButton = new Button("Save");
+        vpanel.add(saveButton);
+
+        updateButton = new Button("Update");
+        vpanel.add(updateButton);
+
+//        vpanel.add(beginTextBox);
+//        vpanel.add(endTextBox);
+//        vpanel.add(saveTextButton);
+//        vpanel.add(saveTimeButton);
 
         initWidget(vpanel);
     }
@@ -72,12 +94,44 @@ public class EditorView extends Composite {
         return this;
     }
 
-    private void SaveText() {
-        song = new Song("Там высоко", textField.getText());
-        Window.alert("Song 'Там высоко' saved");
+    public ListBox getSongsListBox() {
+        return songsListBox;
     }
 
-    private void SaveTime() {
-        song.addTiming(new SelectedTextBlock(textField.getSelectionBegin(), textField.getSelectionEnd(), Integer.parseInt(beginTextBox.getText()), Integer.parseInt(endTextBox.getText())));
+//    public TextField getTextField() {
+//        return textField;
+//    }
+    public TextArea getTextArea() {
+        return textArea;
     }
+
+    public TextBox getNameField() {
+        return nameField;
+    }
+
+    public Button getSaveButton() {
+        return saveButton;
+    }
+
+    public Button getUpdateButton() {
+        return updateButton;
+    }
+
+    public Button getEditSongButton() {
+        return editSongButton;
+    }
+
+    public Button getNewSongButton()
+    {
+        return newSongButton;
+    }
+
+//    private void SaveText() {
+//        song = new Song("Там высоко", textField.getText());
+//        Window.alert("Song 'Там высоко' saved");
+//    }
+
+//    private void SaveTime() {
+//        song.addTiming(new SelectedTextBlock(textField.getSelectionBegin(), textField.getSelectionEnd(), Integer.parseInt(beginTextBox.getText()), Integer.parseInt(endTextBox.getText())));
+//    }
 }
