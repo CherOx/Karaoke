@@ -55,39 +55,20 @@ public class SongServiceImpl extends RemoteServiceServlet implements SongService
 
     public List<SongBean> getSongs()
     {
-//        List<SongBean> songs = new ArrayList<SongBean>();
-//        SongBean song = null;
-//        String name = null;
-//        String text = null;
-//        List<SelectedTextBlock> timings = null;
-//
-////        Random random = new Random();
-//
-//        for ( int i = 0; i < NB_SONGS; i++ )
-//        {
-//            song = new SongBean();
-//
-//            name = NAMES[i % NAMES.length];
-//            song.setName(name);
-//
-//            text = TEXTES[i % TEXTES.length];
-//            song.setText(text);
-//
-//            timings = new ArrayList<SelectedTextBlock>();
-//            for (int j = 0; j < 5; ++j)
-//            {
-//                timings.add(new SelectedTextBlock(j*6, j*6+5, (j+1)*1000+20, (j+2)*1000));
-//            }
-//            song.setTimings(timings);
-//
-//            songs.add( song );
-//        }
-
         return songs;
     }
 
     public void deleteSong( SongBean song )
-    {}
+    {
+        for(SongBean s : songs)
+        {
+            if(s.getId() == song.getId())
+            {
+                songs.remove(s);
+                break;
+            }
+        }
+    }
 
     public void createSong( SongBean song )
     {
@@ -95,5 +76,17 @@ public class SongServiceImpl extends RemoteServiceServlet implements SongService
     }
 
     public void updateSong( SongBean song )
-    {}
+    {
+//        songs.add(song);
+        for(SongBean s : songs)
+        {
+            if(s.getId() == song.getId())
+            {
+                s.setName(song.getName());
+                s.setText(song.getText());
+                s.setTimings(song.getTimings());
+                break;
+            }
+        }
+    }
 }

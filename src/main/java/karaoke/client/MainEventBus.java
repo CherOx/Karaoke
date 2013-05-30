@@ -43,4 +43,7 @@ public interface MainEventBus extends EventBus {
 
     @Event( handlers = { EditorPresenter.class } )
     public void saveSong( SongBean song );
+
+    @Event( handlers = { EditorPresenter.class } )
+    public void updateSong( SongBean song );
 }

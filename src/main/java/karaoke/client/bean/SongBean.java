@@ -15,9 +15,21 @@ import java.util.List;
  */
 public class SongBean implements IsSerializable {
 
+    static int currId = 0;
+
     private String text = null;
     private List<SelectedTextBlock> timings = null;
     private String name = null;
+    private int id;
+
+    public SongBean()
+    {
+        id = currId++;
+    }
+
+    public int getId() {
+        return id;
+    }
 
     public String getText() {
         return text;
@@ -49,8 +61,8 @@ public class SongBean implements IsSerializable {
 //        text = songText;
 //    }
 
-    public void addTiming(SelectedTextBlock textBlock)
-    {
-        timings.add(textBlock);
-    }
+//    public void addTiming(SelectedTextBlock textBlock)
+//    {
+//        timings.add(textBlock);
+//    }
 }

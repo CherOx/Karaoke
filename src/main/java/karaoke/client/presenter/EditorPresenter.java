@@ -29,6 +29,7 @@ public class EditorPresenter extends BasePresenter<EditorView, MainEventBus> {
 
     private SongBean song;
     private List<SongBean> songs;
+//    private List<SelectedTextBlock> timings;
 
     @Inject
     private SongServiceAsync service;
@@ -78,6 +79,7 @@ public class EditorPresenter extends BasePresenter<EditorView, MainEventBus> {
         view.getNameField().setVisible(visible);
         view.getTextArea().setVisible(visible);
         view.getUpdateButton().setVisible(visible);
+        view.getEditSongButton().setEnabled(false);
     }
 
     public void onStart() {
@@ -104,10 +106,42 @@ public class EditorPresenter extends BasePresenter<EditorView, MainEventBus> {
         });
     }
 
+    public void onUpdateSong(SongBean newSong) {
+        service.updateSong( newSong, new AsyncCallback<Void>() {
+            public void onFailure( Throwable caught ) {
+                Window.alert("Error during updating new song!");
+            }
+            public void onSuccess( Void result ) {
+                Window.alert("Song updated!");
+                ShowEditDialog(false);
+                RefreshSongsList();
+            }
+        });
+    }
+
     public void onSelectSong(SongBean selectedSong)
     {
         song = selectedSong;
         view.getEditSongButton().setEnabled(true);
+
+//        Window.alert("Song selected");
+        StringBuilder str = new StringBuilder();
+        for(int i=0;i<song.getTimings().size();i++)
+        {
+            StringBuilder s = new StringBuilder();
+            s.append(song.getTimings().get(i).getFirstSymbol());
+            s.append(" ");
+            s.append(song.getTimings().get(i).getLastSymbol());
+            s.append(" ");
+            s.append(song.getTimings().get(i).getTimeStart());
+            s.append(" ");
+            s.append(song.getTimings().get(i).getTimeStop());
+//            Window.alert(s.toString());
+            str.append(s.toString());
+            str.append("\n");
+        }
+//        Window.alert(str.toString());
+        view.getTempTextArea().setText(str.toString());
     }
 
     private void RefreshSongsList()
@@ -160,9 +194,11 @@ public class EditorPresenter extends BasePresenter<EditorView, MainEventBus> {
         view.getTextArea().setText(str.toString());
     }
 
-    private void MakeTimings()
+    private boolean MakeSong(SongBean inSong)
     {
+        List<SelectedTextBlock> stbList = new ArrayList<SelectedTextBlock>();
         List<String> str = new ArrayList<String>();
+
         String[] arr = view.getTextArea().getText().split("[\\[\\]]");
         for (int i = 0; i < arr.length; i++) {
             String[] arr2 = arr[i].split("=");
@@ -170,12 +206,12 @@ public class EditorPresenter extends BasePresenter<EditorView, MainEventBus> {
                 str.add(arr2[j]);
             }
         }
-        int currPos = 0;
+
         boolean isTimeStart = true;
         StringBuilder sb = new StringBuilder();
+        SelectedTextBlock stb = new SelectedTextBlock();
         for(String s : str)
         {
-            SelectedTextBlock stb = new SelectedTextBlock();
             if(!s.isEmpty())
             {
                 try
@@ -183,13 +219,16 @@ public class EditorPresenter extends BasePresenter<EditorView, MainEventBus> {
                     int time = Integer.parseInt(s);
                     if(isTimeStart)
                     {
+                        stb = new SelectedTextBlock();
                         stb.setTimeStart(time);
                         stb.setFirstSymbol(sb.length());
                     }
                     else
                     {
                         stb.setTimeStop(time);
-                        stb.setLastSymbol(sb.length());
+                        stb.setLastSymbol(sb.length()-1);
+                        stbList.add(stb);
+                        stb = new SelectedTextBlock();
                     }
                     isTimeStart = !isTimeStart;
                 }
@@ -199,13 +238,36 @@ public class EditorPresenter extends BasePresenter<EditorView, MainEventBus> {
                 }
             }
         }
-//        StringBuilder sb = new StringBuilder();
-//        for(String s : str)
+//        for(SelectedTextBlock sss : stbList)
 //        {
-//            sb.append(s);
-//            sb.append("\n");
+//            StringBuilder s = new StringBuilder();
+//            s.append(sss.getFirstSymbol());
+//            s.append(" ");
+//            s.append(sss.getLastSymbol());
+//            s.append(" ");
+//            s.append(sss.getTimeStart());
+//            s.append(" ");
+//            s.append(sss.getTimeStop());
+//            Window.alert(s.toString());
 //        }
-//        view.getTextArea().setText(sb.toString());
+        inSong.setTimings(stbList);
+        inSong.setText(sb.toString());
+        inSong.setName(view.getNameField().getText());
+
+//        for(SelectedTextBlock sss : inSong.getTimings())
+//        {
+//            StringBuilder s = new StringBuilder();
+//            s.append(sss.getFirstSymbol());
+//            s.append(" ");
+//            s.append(sss.getLastSymbol());
+//            s.append(" ");
+//            s.append(sss.getTimeStart());
+//            s.append(" ");
+//            s.append(sss.getTimeStop());
+//            Window.alert(s.toString());
+//        }
+
+        return isTimeStart;
     }
 
     class NewSongClickHandler implements ClickHandler {
@@ -222,7 +284,15 @@ public class EditorPresenter extends BasePresenter<EditorView, MainEventBus> {
 
     class UpdateSongClickHandler implements ClickHandler {
         public void onClick(ClickEvent event) {
-            MakeTimings();
+//            song = new SongBean();
+            if(MakeSong(song))
+            {
+                eventBus.updateSong(song);
+            }
+            else
+            {
+                Window.alert("There are some errors in timings!");
+            }
         }
     }
 

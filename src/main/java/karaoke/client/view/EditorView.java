@@ -31,6 +31,8 @@ public class EditorView extends Composite {
     private Button editSongButton;
     private Song song;
 
+    private TextArea tempTextArea;
+
     public EditorView() {
         vpanel = new VerticalPanel();
         vpanel.setSpacing(5);
@@ -82,10 +84,8 @@ public class EditorView extends Composite {
         updateButton = new Button("Update");
         vpanel.add(updateButton);
 
-//        vpanel.add(beginTextBox);
-//        vpanel.add(endTextBox);
-//        vpanel.add(saveTextButton);
-//        vpanel.add(saveTimeButton);
+        tempTextArea = new TextArea();
+        vpanel.add(tempTextArea);
 
         initWidget(vpanel);
     }
@@ -103,6 +103,10 @@ public class EditorView extends Composite {
 //    }
     public TextArea getTextArea() {
         return textArea;
+    }
+
+    public TextArea getTempTextArea() {
+        return tempTextArea;
     }
 
     public TextBox getNameField() {
