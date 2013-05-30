@@ -2,17 +2,15 @@
 <project version="4">
   <component name="BookmarkManager">
     <bookmark url="file://$PROJECT_DIR$/src/main/java/karaoke/client/view/EditorView.java" line="77" />
+    <bookmark url="file://$PROJECT_DIR$/src/main/java/karaoke/client/presenter/EditorPresenter.java" />
   </component>
   <component name="ChangeListManager">
-    <list default="true" id="98c802a2-f02b-4f31-a29a-056f8eccec71" name="Default" comment="WorkView to EditorView change buttons">
+    <list default="true" id="98c802a2-f02b-4f31-a29a-056f8eccec71" name="Default" comment="">
       <change type="MODIFICATION" beforePath="$PROJECT_DIR$/src/main/java/karaoke/client/presenter/EditorPresenter.java" afterPath="$PROJECT_DIR$/src/main/java/karaoke/client/presenter/EditorPresenter.java" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/src/main/java/karaoke/client/view/EditorView.java" afterPath="$PROJECT_DIR$/src/main/java/karaoke/client/view/EditorView.java" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/Karaoke.iml" afterPath="$PROJECT_DIR$/Karaoke.iml" />
       <change type="MODIFICATION" beforePath="$PROJECT_DIR$/Karaoke.iws" afterPath="$PROJECT_DIR$/Karaoke.iws" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/src/main/java/karaoke/client/MainEventBus.java" afterPath="$PROJECT_DIR$/src/main/java/karaoke/client/MainEventBus.java" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/src/main/java/karaoke/client/service/SelectedTextBlock.java" afterPath="$PROJECT_DIR$/src/main/java/karaoke/client/service/SelectedTextBlock.java" />
       <change type="MODIFICATION" beforePath="$PROJECT_DIR$/src/main/java/karaoke/server/SongServiceImpl.java" afterPath="$PROJECT_DIR$/src/main/java/karaoke/server/SongServiceImpl.java" />
       <change type="MODIFICATION" beforePath="$PROJECT_DIR$/src/main/java/karaoke/client/presenter/WorkPresenter.java" afterPath="$PROJECT_DIR$/src/main/java/karaoke/client/presenter/WorkPresenter.java" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/pom.xml" afterPath="$PROJECT_DIR$/pom.xml" />
     </list>
     <ignored path="Karaoke.iws" />
     <ignored path=".idea/workspace.xml" />
@@ -26,7 +24,7 @@
     <file path="/fragment.java" changelist="98c802a2-f02b-4f31-a29a-056f8eccec71" time="1369857318396" ignored="false" />
     <file path="/HalloPresenter.java" changelist="98c802a2-f02b-4f31-a29a-056f8eccec71" time="1366295391378" ignored="false" />
     <file path="/AppEventBus.java" changelist="98c802a2-f02b-4f31-a29a-056f8eccec71" time="1366296700572" ignored="false" />
-    <file path="/Dummy.txt" changelist="98c802a2-f02b-4f31-a29a-056f8eccec71" time="1369845541394" ignored="false" />
+    <file path="/Dummy.txt" changelist="98c802a2-f02b-4f31-a29a-056f8eccec71" time="1369857850925" ignored="false" />
     <file path="$USER_HOME$/Downloads/mvp4g-examples-1.4.0/TestMvp4g/src/com/mvp4g/example/client/TestEventBus.java" changelist="98c802a2-f02b-4f31-a29a-056f8eccec71" time="1366291882635" ignored="false" />
     <file path="$USER_HOME$/Downloads/mvp4g-examples-1.4.0/TestMvp4g/.idea/workspace.xml" changelist="98c802a2-f02b-4f31-a29a-056f8eccec71" time="1366292271276" ignored="false" />
     <file path="/TestMvp4g.gwt.xml" changelist="98c802a2-f02b-4f31-a29a-056f8eccec71" time="1366292237128" ignored="false" />
@@ -46,7 +44,7 @@
     <file path="/WorkView.java" changelist="98c802a2-f02b-4f31-a29a-056f8eccec71" time="1369820783626" ignored="false" />
     <file path="/WorkPresenter.java" changelist="98c802a2-f02b-4f31-a29a-056f8eccec71" time="1369856379541" ignored="false" />
     <file path="/SelectedTextBlock.java" changelist="98c802a2-f02b-4f31-a29a-056f8eccec71" time="1369734283690" ignored="false" />
-    <file path="/EditorPresenter.java" changelist="98c802a2-f02b-4f31-a29a-056f8eccec71" time="1369857331498" ignored="false" />
+    <file path="/EditorPresenter.java" changelist="98c802a2-f02b-4f31-a29a-056f8eccec71" time="1369915560090" ignored="false" />
     <file path="/EditorView.java" changelist="98c802a2-f02b-4f31-a29a-056f8eccec71" time="1369857191768" ignored="false" />
     <file path="/TextField.java" changelist="98c802a2-f02b-4f31-a29a-056f8eccec71" time="1366917778156" ignored="false" />
     <file path="/a.java" changelist="98c802a2-f02b-4f31-a29a-056f8eccec71" time="1367004081929" ignored="false" />
@@ -117,64 +115,24 @@
   </component>
   <component name="FileEditorManager">
     <leaf>
-      <file leaf-file-name="WorkPresenter.java" pinned="false" current="false" current-in-tab="false">
-        <entry file="file://$PROJECT_DIR$/src/main/java/karaoke/client/presenter/WorkPresenter.java">
-          <provider selected="true" editor-type-id="text-editor">
-            <state line="127" column="33" selection-start="5069" selection-end="5069" vertical-scroll-proportion="0.0">
-              <folding>
-                <element signature="e#2925#3133#0" expanded="true" />
-                <element signature="e#3122#3123#0" expanded="true" />
-              </folding>
-            </state>
-          </provider>
-        </entry>
-      </file>
-      <file leaf-file-name="SongServiceImpl.java" pinned="false" current="false" current-in-tab="false">
-        <entry file="file://$PROJECT_DIR$/src/main/java/karaoke/server/SongServiceImpl.java">
-          <provider selected="true" editor-type-id="text-editor">
-            <state line="52" column="9" selection-start="1676" selection-end="1676" vertical-scroll-proportion="0.0">
-              <folding>
-                <element signature="e#967#977#0" expanded="true" />
-              </folding>
-            </state>
-          </provider>
-        </entry>
-      </file>
-      <file leaf-file-name="WorkView.java" pinned="false" current="false" current-in-tab="false">
-        <entry file="file://$PROJECT_DIR$/src/main/java/karaoke/client/view/WorkView.java">
-          <provider selected="true" editor-type-id="text-editor">
-            <state line="12" column="13" selection-start="406" selection-end="406" vertical-scroll-proportion="0.0">
-              <folding />
-            </state>
-          </provider>
-        </entry>
-      </file>
       <file leaf-file-name="EditorView.java" pinned="false" current="false" current-in-tab="false">
         <entry file="file://$PROJECT_DIR$/src/main/java/karaoke/client/view/EditorView.java">
           <provider selected="true" editor-type-id="text-editor">
-            <state line="114" column="39" selection-start="3214" selection-end="3214" vertical-scroll-proportion="0.0">
+            <state line="103" column="19" selection-start="3019" selection-end="3027" vertical-scroll-proportion="0.0">
               <folding />
             </state>
           </provider>
         </entry>
       </file>
-      <file leaf-file-name="EditorPresenter.java" pinned="false" current="false" current-in-tab="false">
+      <file leaf-file-name="EditorPresenter.java" pinned="false" current="true" current-in-tab="true">
         <entry file="file://$PROJECT_DIR$/src/main/java/karaoke/client/presenter/EditorPresenter.java">
           <provider selected="true" editor-type-id="text-editor">
-            <state line="145" column="31" selection-start="4512" selection-end="4512" vertical-scroll-proportion="0.0">
+            <state line="191" column="57" selection-start="6274" selection-end="6274" vertical-scroll-proportion="0.587037">
               <folding>
-                <element signature="e#1182#1391#0" expanded="true" />
-                <element signature="e#1380#1381#0" expanded="true" />
+                <element signature="e#1135#1344#0" expanded="true" />
+                <element signature="e#1333#1334#0" expanded="true" />
+                <element signature="e#5312#5320#0" expanded="true" />
               </folding>
-            </state>
-          </provider>
-        </entry>
-      </file>
-      <file leaf-file-name="MainEventBus.java" pinned="false" current="true" current-in-tab="true">
-        <entry file="file://$PROJECT_DIR$/src/main/java/karaoke/client/MainEventBus.java">
-          <provider selected="true" editor-type-id="text-editor">
-            <state line="40" column="40" selection-start="1263" selection-end="1263" vertical-scroll-proportion="0.9801802">
-              <folding />
             </state>
           </provider>
         </entry>
@@ -201,18 +159,18 @@
         <option value="$PROJECT_DIR$/src/main/java/karaoke/client/service/Song.java" />
         <option value="$PROJECT_DIR$/src/main/java/karaoke/client/view/RootView.java" />
         <option value="$PROJECT_DIR$/src/main/java/karaoke/client/presenter/RootPresenter.java" />
-        <option value="$PROJECT_DIR$/src/main/java/karaoke/client/service/SelectedTextBlock.java" />
         <option value="$PROJECT_DIR$/src/main/java/karaoke/client/bean/SongBean.java" />
         <option value="$PROJECT_DIR$/src/main/java/karaoke/client/SongService.java" />
         <option value="$PROJECT_DIR$/src/main/java/karaoke/client/SongServiceAsync.java" />
         <option value="$PROJECT_DIR$/src/main/webapp/WEB-INF/web.xml" />
         <option value="$PROJECT_DIR$/src/main/java/karaoke/client/view/WorkView.java" />
         <option value="$PROJECT_DIR$/pom.xml" />
-        <option value="$PROJECT_DIR$/src/main/java/karaoke/server/SongServiceImpl.java" />
-        <option value="$PROJECT_DIR$/src/main/java/karaoke/client/presenter/WorkPresenter.java" />
         <option value="$PROJECT_DIR$/src/main/java/karaoke/client/view/EditorView.java" />
-        <option value="$PROJECT_DIR$/src/main/java/karaoke/client/presenter/EditorPresenter.java" />
         <option value="$PROJECT_DIR$/src/main/java/karaoke/client/MainEventBus.java" />
+        <option value="$PROJECT_DIR$/src/main/java/karaoke/client/presenter/WorkPresenter.java" />
+        <option value="$PROJECT_DIR$/src/main/java/karaoke/server/SongServiceImpl.java" />
+        <option value="$PROJECT_DIR$/src/main/java/karaoke/client/service/SelectedTextBlock.java" />
+        <option value="$PROJECT_DIR$/src/main/java/karaoke/client/presenter/EditorPresenter.java" />
       </list>
     </option>
   </component>
@@ -838,7 +796,11 @@
       <created>1368735807461</created>
       <updated>1368735807461</updated>
     </task>
-    <option name="localTasksCounter" value="5" />
+    <task id="LOCAL-00005" summary="jPC - new EditorView abd EditorPresenter">
+      <created>1369857863913</created>
+      <updated>1369857863913</updated>
+    </task>
+    <option name="localTasksCounter" value="6" />
     <servers />
   </component>
   <component name="ToolWindowManager">
@@ -857,16 +819,16 @@
       <window_info id="Favorites" active="false" anchor="left" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.33" sideWeight="0.5" order="1" side_tool="true" content_ui="tabs" />
       <window_info id="IDEtalk" active="false" anchor="right" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.3298217" sideWeight="0.6725979" order="1" side_tool="false" content_ui="tabs" />
       <window_info id="Version Control" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.32699168" sideWeight="0.5" order="2" side_tool="false" content_ui="tabs" />
-      <window_info id="Messages" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.34282324" sideWeight="0.5" order="4" side_tool="false" content_ui="tabs" />
+      <window_info id="Messages" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.34244946" sideWeight="0.5" order="4" side_tool="false" content_ui="tabs" />
       <window_info id="CDI" active="false" anchor="right" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.3298217" sideWeight="0.67895365" order="3" side_tool="false" content_ui="tabs" />
       <window_info id="Web" active="false" anchor="left" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.24959481" sideWeight="0.42649436" order="0" side_tool="true" content_ui="tabs" />
       <window_info id="TODO" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.33" sideWeight="0.5" order="12" side_tool="false" content_ui="tabs" />
       <window_info id="Structure" active="false" anchor="left" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.24959481" sideWeight="0.5" order="3" side_tool="false" content_ui="tabs" />
-      <window_info id="Maven Projects" active="false" anchor="right" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.17666127" sideWeight="0.67141163" order="2" side_tool="false" content_ui="tabs" />
+      <window_info id="Maven Projects" active="false" anchor="right" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="true" weight="0.17666127" sideWeight="0.68846613" order="2" side_tool="false" content_ui="tabs" />
       <window_info id="Commander" active="false" anchor="right" auto_hide="false" internal_type="SLIDING" type="SLIDING" visible="false" weight="0.4" sideWeight="0.5" order="5" side_tool="false" content_ui="tabs" />
       <window_info id="Application Servers" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.33" sideWeight="0.5" order="3" side_tool="false" content_ui="tabs" />
-      <window_info id="Project" active="false" anchor="left" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="true" weight="0.26418152" sideWeight="0.6892052" order="2" side_tool="false" content_ui="combo" />
-      <window_info id="Run" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="true" weight="0.31079477" sideWeight="0.5" order="8" side_tool="false" content_ui="tabs" />
+      <window_info id="Project" active="false" anchor="left" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="true" weight="0.26418152" sideWeight="0.68846613" order="2" side_tool="false" content_ui="combo" />
+      <window_info id="Run" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="true" weight="0.3115339" sideWeight="0.5" order="8" side_tool="false" content_ui="tabs" />
       <window_info id="Hierarchy" active="false" anchor="right" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.25" sideWeight="0.5" order="7" side_tool="false" content_ui="combo" />
       <window_info id="Cvs" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.25" sideWeight="0.5" order="10" side_tool="false" content_ui="tabs" />
       <window_info id="Message" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.33" sideWeight="0.5" order="6" side_tool="false" content_ui="tabs" />
@@ -915,7 +877,7 @@
     <option name="WRAP_WHEN_TYPING_REACHES_RIGHT_MARGIN" value="false" />
     <option name="FORCE_NON_EMPTY_COMMENT" value="false" />
     <option name="CLEAR_INITIAL_COMMIT_MESSAGE" value="false" />
-    <option name="LAST_COMMIT_MESSAGE" value="WorkView to EditorView change buttons" />
+    <option name="LAST_COMMIT_MESSAGE" value="jPC - new EditorView abd EditorPresenter" />
     <option name="MAKE_NEW_CHANGELIST_ACTIVE" value="false" />
     <option name="OPTIMIZE_IMPORTS_BEFORE_PROJECT_COMMIT" value="false" />
     <option name="CHECK_FILES_UP_TO_DATE_BEFORE_COMMIT" value="false" />
@@ -933,6 +895,7 @@
     <MESSAGE value="Second commit" />
     <MESSAGE value="Third commit" />
     <MESSAGE value="WorkView to EditorView change buttons" />
+    <MESSAGE value="jPC - new EditorView abd EditorPresenter" />
   </component>
   <component name="XDebuggerManager">
     <breakpoint-manager />
@@ -942,20 +905,6 @@
     <option name="FILTER_TARGETS" value="false" />
   </component>
   <component name="editorHistoryManager">
-    <entry file="file://$PROJECT_DIR$/src/main/webapp/karaoke.html">
-      <provider selected="true" editor-type-id="text-editor">
-        <state line="37" column="58" selection-start="1653" selection-end="1653" vertical-scroll-proportion="0.44111776">
-          <folding>
-            <element signature="n#style#0;n#iframe#0;n#body#0;n#html#0;n#!!top" expanded="true" />
-          </folding>
-        </state>
-      </provider>
-    </entry>
-    <entry file="jar://$MAVEN_REPOSITORY$/com/google/gwt/gwt-user/2.5.0/gwt-user-2.5.0-sources.jar!/com/google/gwt/user/client/ui/TextBox.java">
-      <provider selected="true" editor-type-id="text-editor">
-        <state line="87" column="12" selection-start="2571" selection-end="2571" vertical-scroll-proportion="-0.08349146" />
-      </provider>
-    </entry>
     <entry file="file://$PROJECT_DIR$/src/main/webapp/WEB-INF/web.xml">
       <provider editor-type-id="com.intellij.javaee.module.view.web.viewlets.WebModuleAssemblyDescriptorProvider">
         <state />
@@ -1014,20 +963,6 @@
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/src/main/java/karaoke/client/view/WorkView.java">
-      <provider selected="true" editor-type-id="text-editor">
-        <state line="12" column="13" selection-start="406" selection-end="406" vertical-scroll-proportion="0.0">
-          <folding />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/src/main/java/karaoke/client/view/EditorView.java">
-      <provider selected="true" editor-type-id="text-editor">
-        <state line="114" column="39" selection-start="3214" selection-end="3214" vertical-scroll-proportion="0.0">
-          <folding />
-        </state>
-      </provider>
-    </entry>
     <entry file="file://$PROJECT_DIR$/src/main/java/karaoke/client/presenter/RootPresenter.java">
       <provider selected="true" editor-type-id="text-editor">
         <state line="32" column="29" selection-start="1034" selection-end="1034" vertical-scroll-proportion="0.4841772">
@@ -1035,9 +970,95 @@
         </state>
       </provider>
     </entry>
+    <entry file="file://$PROJECT_DIR$/src/main/java/karaoke/client/MainEventBus.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state line="40" column="0" selection-start="1223" selection-end="1318" vertical-scroll-proportion="0.0">
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="jar://$MAVEN_REPOSITORY$/com/google/gwt/gwt-user/2.5.0/gwt-user-2.5.0.jar!/com/google/gwt/emul/java/lang/String.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state line="857" column="18" selection-start="25614" selection-end="25614" vertical-scroll-proportion="0.66917294">
+          <folding>
+            <marker date="1348210350000" expanded="true" signature="-1:-1" placeholder="{...}" />
+            <marker date="1348210350000" expanded="true" signature="-1:-1" placeholder="//..." />
+            <marker date="1348210350000" expanded="true" signature="-1:-1" placeholder="{...}" />
+            <marker date="1348210350000" expanded="true" signature="-1:-1" placeholder="{...}" />
+            <marker date="1348210350000" expanded="true" signature="-1:-1" placeholder="//..." />
+            <marker date="1348210350000" expanded="true" signature="-1:-1" placeholder="{...}" />
+            <marker date="1348210350000" expanded="true" signature="-1:-1" placeholder="{...}" />
+            <marker date="1348210350000" expanded="true" signature="-1:-1" placeholder="//..." />
+            <marker date="1348210350000" expanded="true" signature="-1:-1" placeholder="{...}" />
+            <marker date="1348210350000" expanded="true" signature="-1:-1" placeholder="//..." />
+            <marker date="1348210350000" expanded="true" signature="-1:-1" placeholder="{...}" />
+            <marker date="1348210350000" expanded="true" signature="-1:-1" placeholder="{...}" />
+            <marker date="1348210350000" expanded="true" signature="-1:-1" placeholder="{...}" />
+            <marker date="1348210350000" expanded="true" signature="-1:-1" placeholder="{...}" />
+            <marker date="1348210350000" expanded="true" signature="-1:-1" placeholder="{...}" />
+            <marker date="1348210350000" expanded="true" signature="-1:-1" placeholder="{...}" />
+            <marker date="1348210350000" expanded="true" signature="-1:-1" placeholder="{...}" />
+            <marker date="1348210350000" expanded="true" signature="-1:-1" placeholder="{...}" />
+            <marker date="1348210350000" expanded="true" signature="-1:-1" placeholder="{...}" />
+            <marker date="1348210350000" expanded="true" signature="-1:-1" placeholder="{...}" />
+            <marker date="1348210350000" expanded="true" signature="-1:-1" placeholder="{...}" />
+            <marker date="1348210350000" expanded="true" signature="-1:-1" placeholder="{...}" />
+            <marker date="1348210350000" expanded="true" signature="-1:-1" placeholder="{...}" />
+            <marker date="1348210350000" expanded="true" signature="-1:-1" placeholder="{...}" />
+            <marker date="1348210350000" expanded="true" signature="-1:-1" placeholder="{...}" />
+            <marker date="1348210350000" expanded="true" signature="-1:-1" placeholder="{...}" />
+            <marker date="1348210350000" expanded="true" signature="-1:-1" placeholder="{...}" />
+            <marker date="1348210350000" expanded="true" signature="-1:-1" placeholder="{...}" />
+            <marker date="1348210350000" expanded="true" signature="-1:-1" placeholder="{...}" />
+            <marker date="1348210350000" expanded="true" signature="-1:-1" placeholder="{...}" />
+            <marker date="1348210350000" expanded="true" signature="-1:-1" placeholder="//..." />
+            <marker date="1348210350000" expanded="true" signature="-1:-1" placeholder="{...}" />
+            <marker date="1348210350000" expanded="true" signature="-1:-1" placeholder="//..." />
+            <marker date="1348210350000" expanded="true" signature="-1:-1" placeholder="{...}" />
+            <marker date="1348210350000" expanded="true" signature="-1:-1" placeholder="{...}" />
+            <marker date="1348210350000" expanded="true" signature="-1:-1" placeholder="{...}" />
+            <marker date="1348210350000" expanded="true" signature="-1:-1" placeholder="{...}" />
+            <marker date="1348210350000" expanded="true" signature="-1:-1" placeholder="{...}" />
+            <marker date="1348210350000" expanded="true" signature="-1:-1" placeholder="//..." />
+            <marker date="1348210350000" expanded="true" signature="-1:-1" placeholder="{...}" />
+            <marker date="1348210350000" expanded="true" signature="-1:-1" placeholder="//..." />
+            <marker date="1348210350000" expanded="true" signature="-1:-1" placeholder="{...}" />
+            <marker date="1348210350000" expanded="true" signature="-1:-1" placeholder="{...}" />
+            <marker date="1348210350000" expanded="true" signature="-1:-1" placeholder="{...}" />
+            <marker date="1348210350000" expanded="true" signature="-1:-1" placeholder="//..." />
+            <marker date="1348210350000" expanded="true" signature="-1:-1" placeholder="{...}" />
+            <marker date="1348210350000" expanded="true" signature="-1:-1" placeholder="{...}" />
+            <marker date="1348210350000" expanded="true" signature="-1:-1" placeholder="{...}" />
+            <marker date="1348210350000" expanded="true" signature="-1:-1" placeholder="{...}" />
+            <marker date="1348210350000" expanded="true" signature="-1:-1" placeholder="{...}" />
+            <marker date="1348210350000" expanded="true" signature="-1:-1" placeholder="{...}" />
+            <marker date="1348210350000" expanded="true" signature="-1:-1" placeholder="{...}" />
+            <marker date="1348210350000" expanded="true" signature="-1:-1" placeholder="{...}" />
+            <marker date="1348210350000" expanded="true" signature="-1:-1" placeholder="{...}" />
+            <marker date="1348210350000" expanded="true" signature="-1:-1" placeholder="{...}" />
+          </folding>
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/main/java/karaoke/client/service/SelectedTextBlock.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state line="42" column="4" selection-start="1056" selection-end="1056" vertical-scroll-proportion="0.9344894">
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/main/java/karaoke/server/SongServiceImpl.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state line="28" column="69" selection-start="993" selection-end="993" vertical-scroll-proportion="0.14836223">
+          <folding>
+            <element signature="e#968#978#0" expanded="true" />
+          </folding>
+        </state>
+      </provider>
+    </entry>
     <entry file="file://$PROJECT_DIR$/src/main/java/karaoke/client/presenter/WorkPresenter.java">
       <provider selected="true" editor-type-id="text-editor">
-        <state line="127" column="33" selection-start="5069" selection-end="5069" vertical-scroll-proportion="0.0">
+        <state line="164" column="34" selection-start="6347" selection-end="6347" vertical-scroll-proportion="0.761079">
           <folding>
             <element signature="e#2925#3133#0" expanded="true" />
             <element signature="e#3122#3123#0" expanded="true" />
@@ -1045,29 +1066,28 @@
         </state>
       </provider>
     </entry>
+    <entry file="file://$PROJECT_DIR$/src/main/java/karaoke/client/view/WorkView.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state line="12" column="13" selection-start="406" selection-end="406" vertical-scroll-proportion="0.12592593">
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/main/java/karaoke/client/view/EditorView.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state line="103" column="19" selection-start="3019" selection-end="3027" vertical-scroll-proportion="0.0">
+          <folding />
+        </state>
+      </provider>
+    </entry>
     <entry file="file://$PROJECT_DIR$/src/main/java/karaoke/client/presenter/EditorPresenter.java">
       <provider selected="true" editor-type-id="text-editor">
-        <state line="145" column="31" selection-start="4512" selection-end="4512" vertical-scroll-proportion="0.0">
+        <state line="191" column="57" selection-start="6274" selection-end="6274" vertical-scroll-proportion="0.587037">
           <folding>
-            <element signature="e#1182#1391#0" expanded="true" />
-            <element signature="e#1380#1381#0" expanded="true" />
+            <element signature="e#1135#1344#0" expanded="true" />
+            <element signature="e#1333#1334#0" expanded="true" />
+            <element signature="e#5312#5320#0" expanded="true" />
           </folding>
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/src/main/java/karaoke/server/SongServiceImpl.java">
-      <provider selected="true" editor-type-id="text-editor">
-        <state line="52" column="9" selection-start="1676" selection-end="1676" vertical-scroll-proportion="0.0">
-          <folding>
-            <element signature="e#967#977#0" expanded="true" />
-          </folding>
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/src/main/java/karaoke/client/MainEventBus.java">
-      <provider selected="true" editor-type-id="text-editor">
-        <state line="40" column="40" selection-start="1263" selection-end="1263" vertical-scroll-proportion="0.9801802">
-          <folding />
         </state>
       </provider>
     </entry>

@@ -159,10 +159,10 @@ public class WorkPresenter extends BasePresenter<WorkView, MainEventBus> {
                 updateSelectionLabel();
                 updateSelection();
                 view.getTimeLabel().setText("Time: " + Integer.toString(time));
-                time+=10;
+                time+=50;
             }
         };
-        timer.scheduleRepeating(10);
+        timer.scheduleRepeating(50);
     }
 
     private void updateSelection()
@@ -172,7 +172,7 @@ public class WorkPresenter extends BasePresenter<WorkView, MainEventBus> {
 //        }
         if(cnt<=timings.size()){
             if(time == timings.get(cnt).getTimeStart()){
-                view.getTextArea().setSelectionRange(timings.get(cnt).getFirstSymbol(), timings.get(cnt).getLastSymbol()-timings.get(cnt).getFirstSymbol());
+                view.getTextArea().setSelectionRange(timings.get(cnt).getFirstSymbol(), timings.get(cnt).getLastSymbol()-timings.get(cnt).getFirstSymbol()+1);
             }
             if(time == timings.get(cnt).getTimeStop()){
                 view.getTextArea().setSelectionRange(0, 0);

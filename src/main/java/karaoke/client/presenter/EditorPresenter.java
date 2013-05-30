@@ -5,7 +5,6 @@ import com.google.gwt.event.dom.client.ClickHandler;
 import com.google.gwt.user.client.Window;
 import com.google.gwt.user.client.rpc.AsyncCallback;
 import com.google.gwt.user.client.ui.ListBox;
-import com.google.gwt.user.client.ui.TextArea;
 import com.google.inject.Inject;
 import com.mvp4g.client.annotation.Presenter;
 import com.mvp4g.client.presenter.BasePresenter;
@@ -46,6 +45,7 @@ public class EditorPresenter extends BasePresenter<EditorView, MainEventBus> {
         view.getNewSongButton().addClickHandler(new NewSongClickHandler());
         view.getEditSongButton().addClickHandler(new EditSongClickHandler());
         view.getSaveButton().addClickHandler(new SaveClickHandler());
+        view.getUpdateButton().addClickHandler(new UpdateSongClickHandler());
         view.getNameField().setVisible(false);
         view.getTextArea().setVisible(false);
         view.getSaveButton().setVisible(false);
@@ -68,6 +68,7 @@ public class EditorPresenter extends BasePresenter<EditorView, MainEventBus> {
         {
             view.getNameField().setText(song.getName());
             view.getTextArea().setText(song.getText());
+            ExtractTimings(song);
         }
         else
         {
@@ -97,7 +98,8 @@ public class EditorPresenter extends BasePresenter<EditorView, MainEventBus> {
             }
             public void onSuccess( Void result ) {
                 Window.alert("Song created!");
-                ShowAddDialog(true);
+                ShowAddDialog(false);
+                RefreshSongsList();
             }
         });
     }
@@ -117,22 +119,93 @@ public class EditorPresenter extends BasePresenter<EditorView, MainEventBus> {
                 Window.alert("Error during the song's list reading!");
             }
             public void onSuccess(List<SongBean> result) {
-                setSongs( result );
+                SetSongs(result);
             }
         });
     }
 
-    private void setSongs(List<SongBean> songs) {
+    private void SetSongs(List<SongBean> songs) {
         this.songs = songs;
         int nbSongs = songs.size();
         for ( int i = 0; i < nbSongs; i++ ) {
-            displaySong(songs.get(i));
+            DisplaySong(songs.get(i));
         }
     }
 
-    private void displaySong( SongBean song ) {
+    private void DisplaySong(SongBean song) {
         ListBox table = view.getSongsListBox();
         table.addItem(song.getName());
+    }
+
+    private void ExtractTimings(SongBean inSong)
+    {
+        StringBuilder str = new StringBuilder();
+        int start = 0;
+        int begSymbol, endSymbol;
+        for(int i=0; i<inSong.getTimings().size(); i++)
+        {
+            begSymbol = inSong.getTimings().get(i).getFirstSymbol();
+            endSymbol = inSong.getTimings().get(i).getLastSymbol();
+            str.append(inSong.getText(), start, begSymbol);
+            str.append("[=");
+            str.append(inSong.getTimings().get(i).getTimeStart());
+            str.append("=");
+            str.append(inSong.getText(), begSymbol, endSymbol+1);
+            str.append("=");
+            str.append(inSong.getTimings().get(i).getTimeStop());
+            str.append("=]");
+            start = endSymbol+1;
+        }
+        str.append(inSong.getText(), start, inSong.getText().length());
+        view.getTextArea().setText(str.toString());
+    }
+
+    private void MakeTimings()
+    {
+        List<String> str = new ArrayList<String>();
+        String[] arr = view.getTextArea().getText().split("[\\[\\]]");
+        for (int i = 0; i < arr.length; i++) {
+            String[] arr2 = arr[i].split("=");
+            for (int j = 0; j < arr2.length; j++) {
+                str.add(arr2[j]);
+            }
+        }
+        int currPos = 0;
+        boolean isTimeStart = true;
+        StringBuilder sb = new StringBuilder();
+        for(String s : str)
+        {
+            SelectedTextBlock stb = new SelectedTextBlock();
+            if(!s.isEmpty())
+            {
+                try
+                {
+                    int time = Integer.parseInt(s);
+                    if(isTimeStart)
+                    {
+                        stb.setTimeStart(time);
+                        stb.setFirstSymbol(sb.length());
+                    }
+                    else
+                    {
+                        stb.setTimeStop(time);
+                        stb.setLastSymbol(sb.length());
+                    }
+                    isTimeStart = !isTimeStart;
+                }
+                catch (Exception e)
+                {
+                    sb.append(s);
+                }
+            }
+        }
+//        StringBuilder sb = new StringBuilder();
+//        for(String s : str)
+//        {
+//            sb.append(s);
+//            sb.append("\n");
+//        }
+//        view.getTextArea().setText(sb.toString());
     }
 
     class NewSongClickHandler implements ClickHandler {
@@ -144,6 +217,12 @@ public class EditorPresenter extends BasePresenter<EditorView, MainEventBus> {
     class EditSongClickHandler implements ClickHandler {
         public void onClick(ClickEvent event) {
             ShowEditDialog(true);
+        }
+    }
+
+    class UpdateSongClickHandler implements ClickHandler {
+        public void onClick(ClickEvent event) {
+            MakeTimings();
         }
     }
 

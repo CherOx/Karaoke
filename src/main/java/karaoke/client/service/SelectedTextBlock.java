@@ -25,6 +25,22 @@ public class SelectedTextBlock implements IsSerializable {
 
     public SelectedTextBlock(){}
 
+    public void setFirstSymbol(int firstSymbol) {
+        this.firstSymbol = firstSymbol;
+    }
+
+    public void setLastSymbol(int lastSymbol) {
+        this.lastSymbol = lastSymbol;
+    }
+
+    public void setTimeStart(int timeStart) {
+        this.timeStart = timeStart;
+    }
+
+    public void setTimeStop(int timeStop) {
+        this.timeStop = timeStop;
+    }
+
     public int getFirstSymbol() {
         return firstSymbol;
     }

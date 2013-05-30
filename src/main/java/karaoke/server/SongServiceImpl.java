@@ -20,7 +20,7 @@ import java.util.Random;
 public class SongServiceImpl extends RemoteServiceServlet implements SongService {
 
     static private final String[] NAMES = { "Good song", "Better song", "The best song", "Imagine" };
-    static private final String[] TEXTES = { "In the beginning there was silence", "and darkness, all across the earth.", "Then came the wind, and a hole in the sky.", "Thunder and lightning keep crushing down," };
+    static private final String[] TEXTES = { "In the beginning\nthere was silence", "and darkness, all across the earth.", "Then came the wind, and a hole in the sky.", "Thunder and lightning keep crushing down," };
 
     static private int NB_SONGS = 4;
 
@@ -45,7 +45,7 @@ public class SongServiceImpl extends RemoteServiceServlet implements SongService
             timings = new ArrayList<SelectedTextBlock>();
             for (int j = 0; j < 5; ++j)
             {
-                timings.add(new SelectedTextBlock(j*6, j*6+5, (j+1)*1000+20, (j+2)*1000));
+                timings.add(new SelectedTextBlock(j*6+2, j*6+5+2, (j+1)*1000+50, (j+2)*1000));
             }
             song.setTimings(timings);
 
