@@ -18,33 +18,85 @@ import karaoke.client.view.RootView;
 @Presenter(view = RootView.class)
 public class RootPresenter extends BasePresenter<RootView, MainEventBus> {
 
+//    @Override
+//    public void bind()
+//    {
+//        view.getButtonWork().addClickHandler(new ClickHandler() {
+//            @Override
+//            public void onClick(ClickEvent event) {
+//                eventBus.showWork();
+//            }
+//        });
+//        view.getButtonEditor().addClickHandler(new ClickHandler() {
+//            @Override
+//            public void onClick(ClickEvent event) {
+//                eventBus.showEditor();
+//            }
+//        });
+//    }
+//
+//    public void onChangeBody(Widget newPage) {
+//        view.setBody(newPage);
+//    }
+//
+//    public void onDisplayMessage(String message) {
+//        view.getMessage().setText(message);
+//    }
+//
+//    public void onStart() {
+//        view.getMessage().setText("New Message");
+//    }
+
     @Override
-    public void bind()
-    {
-        view.getButtonWork().addClickHandler(new ClickHandler() {
-            @Override
-            public void onClick(ClickEvent event) {
-                eventBus.showWork();
-            }
-        });
-        view.getButtonEditor().addClickHandler(new ClickHandler() {
-            @Override
-            public void onClick(ClickEvent event) {
-                eventBus.showEditor();
-            }
-        });
+    public void bind() {
+        view.getEditSongsButton().addClickHandler(new EditSongsButtonHandler());
+        view.getPlaySongsButton().addClickHandler(new PlaySongsButtonHandler());
+        view.getPlaySongsButton().setVisible(false);
     }
 
-    public void onChangeBody(Widget newPage) {
-        view.setBody(newPage);
+    /////////////////////////////////////////
+    // Events handlers
+    /////////////////////////////////////////
+
+    public void onChangeLeftTopWidget(Widget newWidget) {
+        view.setLeftTopWidget(newWidget);
     }
 
-    public void onDisplayMessage(String message) {
-        view.getMessage().setText(message);
+    public void onChangeLeftBottomWidget(Widget newWidget) {
+        view.setLeftBottomWidget(newWidget);
     }
 
-    public void onStart() {
-        view.getMessage().setText("New Message");
+    public void onChangeRightWidget(Widget newWidget) {
+        view.setRightWidget(newWidget);
     }
 
+    public void onRunTimer() {
+        view.getEditSongsButton().setEnabled(false);
+    }
+
+    public void onStopTimer() {
+        view.getEditSongsButton().setEnabled(true);
+    }
+
+    /////////////////////////////////////////
+    // Objects handlers
+    /////////////////////////////////////////
+
+    private class EditSongsButtonHandler implements ClickHandler {
+        @Override
+        public void onClick(ClickEvent event) {
+            eventBus.showEditor();
+            view.getPlaySongsButton().setVisible(true);
+            view.getEditSongsButton().setVisible(false);
+        }
+    }
+
+    private class PlaySongsButtonHandler implements ClickHandler {
+        @Override
+        public void onClick(ClickEvent event) {
+            eventBus.showPlayer();
+            view.getPlaySongsButton().setVisible(false);
+            view.getEditSongsButton().setVisible(true);
+        }
+    }
 }

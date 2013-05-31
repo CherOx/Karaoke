@@ -1,7 +1,7 @@
 package karaoke.client.view;
 
-import com.google.gwt.event.dom.client.HasClickHandlers;
 import com.google.gwt.user.client.ui.*;
+import karaoke.client.service.Constants;
 
 /**
  * Created with IntelliJ IDEA.
@@ -12,39 +12,59 @@ import com.google.gwt.user.client.ui.*;
  */
 public class RootView extends Composite {
 
-    private Label message = new Label();
-    private SimplePanel body = new SimplePanel();
-    private Button setWork;
-    private Button setEditor;
+    private FlexTable body = new FlexTable();
+    private Label appName = new Label();
+    private Button editSongsButton;
+    private Button playSongsButton;
 
-    RootView() {
-        VerticalPanel mainPanel = new VerticalPanel();
-        mainPanel.add(message);
-        mainPanel.add(body);
-        setWork = new Button("SetWorkView");
-        mainPanel.add(setWork);
-        setEditor = new Button("SetEditorView");
-        mainPanel.add(setEditor);
-        initWidget(mainPanel);
+    public RootView() {
+        body.getFlexCellFormatter().setColSpan(0, 0, 2);
+        body.getFlexCellFormatter().setRowSpan(1, 1, 3);
+        body.getCellFormatter().setHeight(1, 0, "30px");
+        body.getCellFormatter().setHeight(2, 0, "200px");
+//        body.setBorderWidth(2);
+        body.getCellFormatter().setHorizontalAlignment(0, 0, HasHorizontalAlignment.ALIGN_CENTER);
+        body.getCellFormatter().setHorizontalAlignment(1, 0, HasHorizontalAlignment.ALIGN_CENTER);
+//        body.getCellFormatter().setHorizontalAlignment(2, 0, HasHorizontalAlignment.ALIGN_CENTER);
+//        body.getCellFormatter().setHorizontalAlignment(3, 0, HasHorizontalAlignment.ALIGN_CENTER);
+        body.getCellFormatter().setVerticalAlignment(2, 0, HasVerticalAlignment.ALIGN_TOP);
+        body.getCellFormatter().setVerticalAlignment(1, 1, HasVerticalAlignment.ALIGN_TOP);
+        body.getCellFormatter().setVerticalAlignment(3, 0, HasVerticalAlignment.ALIGN_TOP);
+
+        appName.setText(Constants.APPLICATION_NAME);
+        body.setWidget(0, 0, appName);
+
+        HorizontalPanel hPanel = new HorizontalPanel();
+        hPanel.setSpacing(5);
+        body.setWidget(1, 0, hPanel);
+
+        editSongsButton = new Button(Constants.OPEN_EDITOR_VIEW_BUTTON);
+        hPanel.add(editSongsButton);
+
+        playSongsButton = new Button(Constants.OPEN_PLAYER_VIEW_BUTTON);
+        hPanel.add(playSongsButton);
+
+        initWidget(body);
     }
 
-    public HasClickHandlers getButtonWork() {
-        return setWork;
+    public Button getEditSongsButton() {
+        return editSongsButton;
     }
 
-    public HasClickHandlers getButtonEditor() {
-        return setEditor;
+    public Button getPlaySongsButton() {
+        return playSongsButton;
     }
 
-    public HasText getMessage() {
-        return message;
+    public void setLeftTopWidget(Widget widget) {
+        body.setWidget(2, 0, widget);
     }
 
-    public void setBody(Widget widget) {
-        this.body.setWidget(widget);
+    public void setLeftBottomWidget(Widget widget) {
+        body.setWidget(3, 0, widget);
     }
 
-    public Widget getViewWidget() {
-        return this;
+    public void setRightWidget(Widget widget) {
+        body.setWidget(1, 1, widget);
     }
+
 }

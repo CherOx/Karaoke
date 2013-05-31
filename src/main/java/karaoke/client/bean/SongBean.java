@@ -55,14 +55,4 @@ public class SongBean implements IsSerializable {
         this.name = name;
     }
 
-//    public SongBean(String songName, String songText)
-//    {
-//        name = songName;
-//        text = songText;
-//    }
-
-//    public void addTiming(SelectedTextBlock textBlock)
-//    {
-//        timings.add(textBlock);
-//    }
 }
